@@ -28,5 +28,8 @@ public class test_SLL_nT {
 
 
         node.displayCount();
+
+        node.insertAfterNode(4,11);
+        node.displayList();
     }
 }

@@ -1,5 +1,6 @@
 
 
+
 public class SLL_nT {
 
   Node head;
@@ -60,13 +61,13 @@ public class SLL_nT {
         System.out.println("there is no number equals "+Value);
       }
       else {
-      Node cur = head;
+        Node cur = head;
 
-      while(cur.data!=Value){
-        cur=cur.next;
-      }
-      newNode.next = cur.next;
-      cur.next = newNode;
+        while(cur.data!=Value){
+          cur=cur.next;
+        }
+        newNode.next = cur.next;
+        cur.next = newNode;
       }
     }
     /*inserting ends here*/
@@ -108,17 +109,17 @@ public class SLL_nT {
       }
 
 
-       else {
-    Node curr = head;
-    while(curr.data != Value){
-      curr = curr.next;
-    }
-    if (curr.next == null){
-      System.out.println("there is nothing after this number");
-    }
-    else {
-    curr.next = curr.next.next;
-    }
+      else {
+        Node curr = head;
+        while(curr.data != Value){
+          curr = curr.next;
+        }
+        if (curr.next == null){
+          System.out.println("there is nothing after this number");
+        }
+        else {
+          curr.next = curr.next.next;
+        }
       }
     }
   }
@@ -175,21 +176,6 @@ public class SLL_nT {
 
     }
 
-  }
-   boolean validNum(int value) {
-    Node cur = head;
-
-
-    while (cur != null) {
-
-      if (cur.data == value) {
-        return true;
-      }
-      cur = cur.next;
-    }
-
-
-    return false;
   }
 
   /*traversing ends here*/
