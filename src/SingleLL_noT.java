@@ -5,9 +5,12 @@ public class SingleLL_noT {
   SingleNode head;
   int count = 0 ;
 
+  //under this comment all of it are methods and algorithms
+
+  /* inserting start here*/
   void insertFirst(int data) {
     SingleNode newNode = new SingleNode(data);
-    if (head == null)
+    if (isEmpty())
       head =  newNode;
     else {
       newNode.next = head;
@@ -19,7 +22,7 @@ public class SingleLL_noT {
   void insertLast(int data){
     SingleNode newNode = new SingleNode(data);
     SingleNode cur = head;
-    if (head == null){
+    if (isEmpty()){
       head = newNode;
     }
     else {
@@ -39,23 +42,47 @@ public class SingleLL_noT {
 
   void insertAfterNode(int data, int Value){
     SingleNode newNode = new SingleNode(data);
-    SingleNode cur = head;
 
-    if (head == null)
+
+
+
+    if (isEmpty())
     {
       head = newNode;
     }
+
+
+
+
     else{
+      SingleNode cur = head;
+
       while(cur.data!=Value){
         cur=cur.next;
       }
       newNode.next = cur.next;
       cur.next = newNode;
+    }
+    /*inserting ends here*/
 
 
 
+
+  }
+
+  /*delete start here*/
+  void deleteFirst(){
+
+    if (isEmpty()){
+      System.out.println("the list are empty");
+    }
+   else {
+      head = head.next;
     }
   }
+  /*delete ends here*/
+
+  /*Printing start here*/
   void printNode(){
     SingleNode cur = head;
     while (cur!=null){
@@ -65,12 +92,14 @@ public class SingleLL_noT {
 
     }
 
-
+    /*printing ends here*/
 
   }
+
+  /*traversing start here*/
   int Count(){
     SingleNode temp = head;
-    if (head==null){
+    if (isEmpty()){
       count = 0;
       return count;
     }
@@ -85,6 +114,21 @@ public class SingleLL_noT {
     }
 
   }
+  /*traversing ends here*/
+
+  /*general method*/
+
+ private boolean isEmpty(){
+    if (head ==null)
+    {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 
 
-}
+  }
+
+
