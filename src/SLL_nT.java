@@ -177,6 +177,21 @@ public class SLL_nT {
     }
 
   }
+  boolean validNum(int value) {
+    Node cur = head;
+
+
+    while (cur != null) {
+
+      if (cur.data == value) {
+        return true;
+      }
+      cur = cur.next;
+    }
+
+
+    return false;
+  }
 
   /*traversing ends here*/
 
