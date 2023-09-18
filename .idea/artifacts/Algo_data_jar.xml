@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="Algo_data:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Algo_data_jar</output-path>
+    <root id="root">
+      <element id="archive" name="Algo_data.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/../META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="Algo_data" />
+      </element>
+    </root>
+  </artifact>
+</component>
