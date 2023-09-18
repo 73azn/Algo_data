@@ -14,8 +14,14 @@ public class main {
 
 
 
-        node.printNode();
-        System.out.println(node.Count());
+        node.displayList();
+
+        System.out.println("\nthe number of the nodes "+node.Count());
+
+        node.displayFirst();
+        node.displayLast();
+
+        node.displayCount();
 
 
     }

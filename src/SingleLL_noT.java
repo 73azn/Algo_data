@@ -95,7 +95,7 @@ public class SingleLL_noT {
   /*delete ends here*/
 
   /*Printing start here*/
-  void printNode(){
+  void displayList(){
     SingleNode cur = head;
     while (cur!=null){
 
@@ -104,15 +104,34 @@ public class SingleLL_noT {
 
     }
 
-    /*printing ends here*/
+
+
 
   }
+  void displayFirst(){
+    System.out.println("the head "+head.data);
+  }
+
+  void displayLast(){
+    SingleNode cur = head;
+    while (cur.next!=null){
+      cur = cur.next;
+
+    }
+    System.out.println("the tail "+cur.data);
+  }
+
+  void displayCount(){
+    System.out.println("the number of the nodes are : "+Count());
+  }
+  /*printing ends here*/
 
   /*traversing start here*/
   int Count(){
     SingleNode temp = head;
+    count = 0;
     if (isEmpty()){
-      count = 0;
+
       return count;
     }
     else{
@@ -123,6 +142,7 @@ public class SingleLL_noT {
     }
 
       return count;
+
     }
 
   }
