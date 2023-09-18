@@ -10,7 +10,7 @@ public class main {
         node.insertLast(12);
         node.insertLast(13);
         node.insertLast(12);
-        node.deleteAfterNode(4);
+
 
 
         node.printNode();
