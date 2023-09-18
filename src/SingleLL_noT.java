@@ -80,6 +80,18 @@ public class SingleLL_noT {
       head = head.next;
     }
   }
+  void deleteLast(){
+    SingleNode cur = head;
+
+    if (isEmpty()){
+      System.out.println("the array are empty");
+    }
+    else {
+      while (cur.next.next!=null){cur=cur.next;}
+      cur.next = null;
+    }
+
+  }
   /*delete ends here*/
 
   /*Printing start here*/
@@ -128,10 +140,10 @@ public class SingleLL_noT {
     }
   }
 
-  /*this is a test*/
+
 
 
   }
-//  My name is Ali
+
 
 

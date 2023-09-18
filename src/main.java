@@ -10,11 +10,13 @@ public class main {
         node.insertLast(12);
         node.insertLast(13);
         node.insertLast(12);
+        node.deleteLast();
 
 
 
         node.printNode();
         System.out.println(node.Count());
+
 
     }
 }
