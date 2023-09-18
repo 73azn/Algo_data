@@ -56,6 +56,10 @@ public class SLL_nT {
 
 
     else{
+      if (!validNum(Value)){
+        System.out.println("there is no number equals "+Value);
+      }
+      else {
       Node cur = head;
 
       while(cur.data!=Value){
@@ -63,6 +67,7 @@ public class SLL_nT {
       }
       newNode.next = cur.next;
       cur.next = newNode;
+      }
     }
     /*inserting ends here*/
 
@@ -93,16 +98,29 @@ public class SLL_nT {
     }
 
   }
-  void deleteAfterNode(int data){
-    if(head == null){
+  void deleteAfterNode(int Value){
+    if(isEmpty()){
       System.out.println("Empty List");
-    } else if(count == 1){
     }
+    else {
+      if (!validNum(Value)){
+        System.out.println("there is no number equals "+Value);
+      }
+
+
+       else {
     Node curr = head;
-    while(curr.data != data){
+    while(curr.data != Value){
       curr = curr.next;
     }
+    if (curr.next == null){
+      System.out.println("there is nothing after this number");
+    }
+    else {
     curr.next = curr.next.next;
+    }
+      }
+    }
   }
   /*delete ends here*/
 
@@ -158,6 +176,22 @@ public class SLL_nT {
     }
 
   }
+   boolean validNum(int value) {
+    Node cur = head;
+
+
+    while (cur != null) {
+
+      if (cur.data == value) {
+        return true;
+      }
+      cur = cur.next;
+    }
+
+
+    return false;
+  }
+
   /*traversing ends here*/
 
   /*general method*/

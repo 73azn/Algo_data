@@ -11,9 +11,11 @@ public class test_SLL_nT {
         node.insertLast(12);
         node.insertLast(13);
         node.insertLast(12);
-        node.deleteLast();
 
+        node.deleteLast();
         node.deleteFirst();
+
+        node.insertAfterNode(1,12);
 
 
         node.displayList();
