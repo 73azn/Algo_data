@@ -80,6 +80,18 @@ public class SingleLL_noT {
       head = head.next;
     }
   }
+
+  void deleteAfterNode(int data){
+    if(head == null){
+      System.out.println("Empty List");
+    } else if(count == 1){
+    }
+    SingleNode curr = head;
+    while(curr.data != data){
+      curr = curr.next;
+    }
+    curr.next = curr.next.next;
+  }
   /*delete ends here*/
 
   /*Printing start here*/
@@ -118,15 +130,18 @@ public class SingleLL_noT {
 
   /*general method*/
 
- private boolean isEmpty(){
-    if (head ==null)
-    {
-      return true;
+   private boolean isEmpty(){
+      if (head ==null)
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
     }
-    else {
-      return false;
-    }
-  }
+
+
+
 
 
   }
