@@ -1,17 +1,18 @@
 
 
-public class SingleLL_noT {
+public class SLL_nT {
 
-  SingleNode head;
+  Node head;
   int count = 0 ;
 
   //under this comment all of it are methods and algorithms
 
   /* inserting start here*/
   void insertFirst(int data) {
-    SingleNode newNode = new SingleNode(data);
-    if (isEmpty())
-      head =  newNode;
+    Node newNode = new Node(data);
+    if (isEmpty()) {
+      head = newNode;
+    }
     else {
       newNode.next = head;
       head = newNode;
@@ -20,8 +21,8 @@ public class SingleLL_noT {
   }
 
   void insertLast(int data){
-    SingleNode newNode = new SingleNode(data);
-    SingleNode cur = head;
+    Node newNode = new Node(data);
+    Node cur = head;
     if (isEmpty()){
       head = newNode;
     }
@@ -41,7 +42,7 @@ public class SingleLL_noT {
   }
 
   void insertAfterNode(int data, int Value){
-    SingleNode newNode = new SingleNode(data);
+    Node newNode = new Node(data);
 
 
 
@@ -55,7 +56,7 @@ public class SingleLL_noT {
 
 
     else{
-      SingleNode cur = head;
+      Node cur = head;
 
       while(cur.data!=Value){
         cur=cur.next;
@@ -81,7 +82,7 @@ public class SingleLL_noT {
     }
   }
   void deleteLast(){
-    SingleNode cur = head;
+    Node cur = head;
 
     if (isEmpty()){
       System.out.println("the array are empty");
@@ -97,7 +98,7 @@ public class SingleLL_noT {
       System.out.println("Empty List");
     } else if(count == 1){
     }
-    SingleNode curr = head;
+    Node curr = head;
     while(curr.data != data){
       curr = curr.next;
     }
@@ -107,7 +108,7 @@ public class SingleLL_noT {
 
   /*Printing start here*/
   void displayList(){
-    SingleNode cur = head;
+    Node cur = head;
     while (cur!=null){
 
       System.out.print(cur.data+" ");
@@ -124,7 +125,7 @@ public class SingleLL_noT {
   }
 
   void displayLast(){
-    SingleNode cur = head;
+    Node cur = head;
     while (cur.next!=null){
       cur = cur.next;
 
@@ -139,7 +140,7 @@ public class SingleLL_noT {
 
   /*traversing start here*/
   int Count(){
-    SingleNode temp = head;
+    Node temp = head;
     count = 0;
     if (isEmpty()){
 

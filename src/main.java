@@ -2,7 +2,7 @@ public class main {
     public static void main(String[] args){
 
 
-        SingleLL_noT node = new SingleLL_noT();
+        SLL_nT node = new SLL_nT();
 
 
         node.insertFirst(5);
@@ -10,8 +10,9 @@ public class main {
         node.insertLast(12);
         node.insertLast(13);
         node.insertLast(12);
-        node.deleteAfterNode(4);
+        node.deleteLast();
 
+        node.deleteFirst();
 
 
         node.displayList();
@@ -21,6 +22,7 @@ public class main {
 
         node.displayFirst();
         node.displayLast();
+
 
         node.displayCount();
     }
