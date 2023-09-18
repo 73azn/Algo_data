@@ -5,6 +5,9 @@ public class test_SLL_T {
 
         node.insertFirst(5);
         node.insertLast(15);
+        node.insertLast(20);
+        node.deleteLast();
+        node.insertLast(20);
 
 
         node.displayList();

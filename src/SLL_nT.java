@@ -12,11 +12,12 @@ public class SLL_nT {
     Node newNode = new Node(data);
     if (isEmpty()) {
       head = newNode;
+      return;
     }
-    else {
+
       newNode.next = head;
       head = newNode;
-    }
+
 
   }
 
@@ -25,8 +26,9 @@ public class SLL_nT {
     Node cur = head;
     if (isEmpty()){
       head = newNode;
+      return;
     }
-    else {
+
 
       while (cur.next != null) {
         cur=cur.next;
@@ -38,7 +40,7 @@ public class SLL_nT {
 
 
 
-    }
+
   }
 
   void insertAfterNode(int data, int Value){
@@ -50,31 +52,29 @@ public class SLL_nT {
     if (isEmpty())
     {
       head = newNode;
+      return;
     }
 
-
-
-
-    else{
-      if (!validNum(Value)){
-        System.out.println("there is no number equals "+Value);
-      }
-      else {
       Node cur = head;
 
-      while(cur.data!=Value){
+      while(cur.data!=Value && cur!=null){
         cur=cur.next;
       }
+      if (cur == null){
+        System.out.println("No node with value " + Value + " found.");
+      }
+      else {
       newNode.next = cur.next;
       cur.next = newNode;
       }
-    }
+  }
+
     /*inserting ends here*/
 
 
 
 
-  }
+
 
   /*delete start here*/
   void deleteFirst(){
@@ -98,28 +98,26 @@ public class SLL_nT {
     }
 
   }
-  void deleteAfterNode(int Value){
-    if(isEmpty()){
+  void deleteAfterNode(int Value) {
+    if (isEmpty()) {
       System.out.println("Empty List");
+      return;
     }
-    else {
-      if (!validNum(Value)){
-        System.out.println("there is no number equals "+Value);
-      }
 
-
-       else {
     Node curr = head;
-    while(curr.data != Value){
+    while (curr != null && curr.data != Value) {
       curr = curr.next;
     }
-    if (curr.next == null){
-      System.out.println("there is nothing after this number");
+
+    if (curr == null) {
+      System.out.println("No node with value " + Value + " found.");
+      return;
     }
-    else {
-    curr.next = curr.next.next;
-    }
-      }
+
+    if (curr.next == null) {
+      System.out.println("No node to delete after " + Value + ".");
+    } else {
+      curr.next = curr.next.next;
     }
   }
   /*delete ends here*/
@@ -176,21 +174,21 @@ public class SLL_nT {
     }
 
   }
-   boolean validNum(int value) {
-    Node cur = head;
-
-
-    while (cur != null) {
-
-      if (cur.data == value) {
-        return true;
-      }
-      cur = cur.next;
-    }
-
-
-    return false;
-  }
+//   boolean validNum(int value) {
+//    Node cur = head;
+//
+//
+//    while (cur != null) {
+//
+//      if (cur.data == value) {
+//        return true;
+//      }
+//      cur = cur.next;
+//    }
+//
+//
+//    return false;
+//  }
 
   /*traversing ends here*/
 

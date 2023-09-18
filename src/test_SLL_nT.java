@@ -15,7 +15,7 @@ public class test_SLL_nT {
         node.deleteLast();
         node.deleteFirst();
 
-        node.insertAfterNode(1,12);
+        node.deleteAfterNode(2);
 
 
         node.displayList();
