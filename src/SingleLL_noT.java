@@ -76,14 +76,37 @@ public class SingleLL_noT {
     if (isEmpty()){
       System.out.println("the list are empty");
     }
-   else {
+    else {
       head = head.next;
     }
+  }
+  void deleteLast(){
+    SingleNode cur = head;
+
+    if (isEmpty()){
+      System.out.println("the array are empty");
+    }
+    else {
+      while (cur.next.next!=null){cur=cur.next;}
+      cur.next = null;
+    }
+
+  }
+  void deleteAfterNode(int data){
+    if(head == null){
+      System.out.println("Empty List");
+    } else if(count == 1){
+    }
+    SingleNode curr = head;
+    while(curr.data != data){
+      curr = curr.next;
+    }
+    curr.next = curr.next.next;
   }
   /*delete ends here*/
 
   /*Printing start here*/
-  void printNode(){
+  void displayList(){
     SingleNode cur = head;
     while (cur!=null){
 
@@ -92,25 +115,45 @@ public class SingleLL_noT {
 
     }
 
-    /*printing ends here*/
+
+
 
   }
+  void displayFirst(){
+    System.out.println("the head "+head.data);
+  }
+
+  void displayLast(){
+    SingleNode cur = head;
+    while (cur.next!=null){
+      cur = cur.next;
+
+    }
+    System.out.println("the tail "+cur.data);
+  }
+
+  void displayCount(){
+    System.out.println("the number of the nodes are : "+Count());
+  }
+  /*printing ends here*/
 
   /*traversing start here*/
   int Count(){
     SingleNode temp = head;
+    count = 0;
     if (isEmpty()){
-      count = 0;
+
       return count;
     }
     else{
-    while (temp!=null){
-      count++;
-      temp = temp.next;
+      while (temp!=null){
+        count++;
+        temp = temp.next;
 
-    }
+      }
 
       return count;
+
     }
 
   }
@@ -118,7 +161,7 @@ public class SingleLL_noT {
 
   /*general method*/
 
- private boolean isEmpty(){
+  private boolean isEmpty(){
     if (head ==null)
     {
       return true;
@@ -129,7 +172,9 @@ public class SingleLL_noT {
   }
 
 
-  }
-//  My name is Ali
+
+
+}
+
 
 

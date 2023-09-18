@@ -10,11 +10,18 @@ public class main {
         node.insertLast(12);
         node.insertLast(13);
         node.insertLast(12);
+        node.deleteAfterNode(4);
 
 
 
-        node.printNode();
-        System.out.println(node.Count());
+        node.displayList();
 
+        System.out.println("\nthe number of the nodes "+node.Count());
+
+
+        node.displayFirst();
+        node.displayLast();
+
+        node.displayCount();
     }
 }
