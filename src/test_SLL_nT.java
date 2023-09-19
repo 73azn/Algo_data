@@ -1,32 +1,39 @@
 public class test_SLL_nT {
     public static void main(String[] args){
 
+        SLL_T node = new SLL_T();
+        //the complate test for the methods
 
-        SLL_nT node = new SLL_nT();
+        node.insertFirst(25);
+        node.insertLast(30);
+        node.insertAfterNode(28,25);
+        node.insertLast(80);
+        node.insertFirst(50);
+        //test if the node not in the set
+        node.insertAfterNode(29,1);
+        node.insertAfterNode(29,8);
 
-
-
-        node.insertFirst(5);
-        node.insertFirst(55);
-        node.insertLast(12);
-        node.insertLast(13);
-        node.insertLast(12);
-
-        node.deleteLast();
-        node.deleteFirst();
-
-        node.deleteAfterNode(2);
-
-
+        //display the set with all the methods before the deletion
         node.displayList();
-
-        System.out.println("\nthe number of the nodes "+node.Count());
-
-
         node.displayFirst();
         node.displayLast();
-
-
         node.displayCount();
+
+        System.out.println("under here are fixed set");
+
+        //deleting data
+        node.deleteFirst();
+        node.deleteLast();
+        node.deleteAfterNode(25);
+        node.deleteAfterNode(30);
+        node.deleteAfterNode(28);
+
+        //display the set after the deletion
+
+        node.displayList();
+        node.displayFirst();
+        node.displayLast();
+        node.displayCount();
+
     }
 }
