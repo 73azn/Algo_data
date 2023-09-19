@@ -188,7 +188,7 @@ public class SLL_T {
 
 
     private boolean isEmpty(){
-        if (head ==null)
+        if (isEmpty())
         {
             return true;
         }
