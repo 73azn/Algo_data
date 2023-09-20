@@ -75,18 +75,17 @@ public class SLL_T {
             head = head.next;
 
     }
+    //fix this
     void deleteLast(){
-        Node cur = head;
+
     if (isEmpty()){
         System.out.println("\nthe list are empty");
         return;
     }
 
-        while (cur.next!=tail){
-            cur=cur.next;
-        }
-        cur.next = null;
-        tail=cur;
+
+
+
 
     }
 
@@ -145,25 +144,53 @@ public class SLL_T {
     void displayCount(){
         System.out.println("\nThe count of the set "+Count());
     }
+    void displayPrvSuss(int value){
+        Node cur = head;
+
+        if (isEmpty()){
+            System.out.println("the set are empty");
+            return;
+        }
+        if (value==head.data){
+            System.out.println("you there is no prv");
+            System.out.println("the Suss are"+head.next.data);
+            return;
+
+        }
+
+        while (cur.next!=null&&cur.next.data!=value){
+            cur=cur.next;
+        }
+        if (cur.next==null) {
+            System.out.println("\nNo node with value " + value + " found.");
+            return;
+        }
+        System.out.println("the prv are "+cur.data);
+        if (cur.next.next ==null){
+            System.out.println("the Suss are empty");
+            return;
+        }
+        System.out.println("the Suss are "+cur.next.next.data);
+    }
 
     /*Printing end*/
 
     /*Traversing start*/
-//    boolean validNum(int value) {
-//        Node cur = head;
-//
-//
-//        while (cur != null) {
-//
-//            if (cur.data == value) {
-//                return true;
-//            }
-//            cur = cur.next;
-//        }
-//
-//
-//        return false;
-//    }
+    boolean validNum(int value) {
+        Node cur = head;
+
+
+        while (cur != null) {
+
+            if (cur.data == value) {
+                return true;
+            }
+            cur = cur.next;
+        }
+
+
+        return false;
+    }
     int Count(){
         Node temp = head;
         count = 0;
@@ -188,7 +215,7 @@ public class SLL_T {
 
 
     private boolean isEmpty(){
-        if (isEmpty())
+        if (head==null)
         {
             return true;
         }

@@ -2,6 +2,8 @@ public class test_SLL_T {
     public static void main(String[] args){
 
         SLL_T node = new SLL_T();
+
+
         //the complate test for the methods
 
         node.insertFirst(25);
@@ -29,11 +31,13 @@ public class test_SLL_T {
         node.deleteAfterNode(28);
 
         //display the set after the deletion
+        node.deleteLast();
+        node.deleteLast();
 
         node.displayList();
         node.displayFirst();
         node.displayLast();
         node.displayCount();
-
+        node.displayPrvSuss(0);
     }
 }

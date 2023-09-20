@@ -1,10 +1,11 @@
 public class test_SLL_nT {
     public static void main(String[] args){
 
-        SLL_T node = new SLL_T();
+        SLL_nT node = new SLL_nT();
         //the complate test for the methods
 
         node.insertFirst(25);
+        node.insertFirst(80);
         node.insertLast(30);
         node.insertAfterNode(28,25);
         node.insertLast(80);
@@ -25,6 +26,7 @@ public class test_SLL_nT {
         node.deleteFirst();
         node.deleteLast();
         node.deleteAfterNode(25);
+
         node.deleteAfterNode(30);
         node.deleteAfterNode(28);
 
@@ -34,6 +36,6 @@ public class test_SLL_nT {
         node.displayFirst();
         node.displayLast();
         node.displayCount();
-
+        node.displayPrvSuss(100);
     }
 }

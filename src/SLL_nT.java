@@ -172,6 +172,37 @@ public class SLL_nT {
     }
     System.out.println("\nthe number of the nodes are : "+Count());
   }
+  void displayPrvSuss(int value){
+    Node cur = head;
+
+    if (isEmpty()){
+      System.out.println("the set are empty");
+      return;
+    }
+    if (value==head.data){
+      System.out.println("you there is no prv");
+      System.out.println("the Suss are"+head.next.data);
+      return;
+
+    }
+
+    while (cur.next!=null&&cur.next.data!=value){
+      cur=cur.next;
+    }
+    if (cur.next==null) {
+      System.out.println("\nNo node with value " + value + " found.");
+      return;
+    }
+    System.out.println("the prv are "+cur.data);
+    if (cur.next.next ==null){
+      System.out.println("the Suss are empty");
+      return;
+    }
+    System.out.println("the Suss are "+cur.next.next.data);
+  }
+
+
+
   /*printing ends here*/
 
   /*traversing start here*/
@@ -194,21 +225,21 @@ public class SLL_nT {
 
 
   }
-//   boolean validNum(int value) {
-//    Node cur = head;
-//
-//
-//    while (cur != null) {
-//
-//      if (cur.data == value) {
-//        return true;
-//      }
-//      cur = cur.next;
-//    }
-//
-//
-//    return false;
-//  }
+   boolean validNum(int value) {
+    Node cur = head;
+
+
+    while (cur != null) {
+
+      if (cur.data == value) {
+        return true;
+      }
+      cur = cur.next;
+    }
+
+
+    return false;
+  }
 
   /*traversing ends here*/
 
