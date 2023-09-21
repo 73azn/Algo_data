@@ -94,8 +94,13 @@ public class SLL_nT {
       System.out.println("\nthe array are empty");
       return;
     }
+    if (cur.next == null){
+      head=null;
+      return;
+    }
 
       while (cur.next.next!=null){cur=cur.next;}
+
       cur.next = null;
 
 
@@ -179,16 +184,22 @@ public class SLL_nT {
       System.out.println("the set are empty");
       return;
     }
+
+
+    while (cur.next!=null&&cur.next.data!=value){
+      cur=cur.next;
+    }
     if (value==head.data){
       System.out.println("you there is no prv");
+      if (isHeadEqTail(cur)){
+        System.out.println("no suss in here ");
+        return;
+      }
       System.out.println("the Suss are"+head.next.data);
       return;
 
     }
 
-    while (cur.next!=null&&cur.next.data!=value){
-      cur=cur.next;
-    }
     if (cur.next==null) {
       System.out.println("\nNo node with value " + value + " found.");
       return;
@@ -255,6 +266,15 @@ public class SLL_nT {
 
   }
 
+  private boolean isHeadEqTail(Node cur){
+
+    if (head == cur){
+      return true;
+    }
+
+
+    return false;
+  }
 
 
 

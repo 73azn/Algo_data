@@ -26,18 +26,25 @@ public class test_SLL_T {
         //deleting data
         node.deleteFirst();
         node.deleteLast();
-        node.deleteAfterNode(25);
+        node.deleteLast();
+        node.deleteLast();
+        node.deleteLast();
+
+
+
+
+
+
         node.deleteAfterNode(30);
         node.deleteAfterNode(28);
 
         //display the set after the deletion
-        node.deleteLast();
-        node.deleteLast();
+
 
         node.displayList();
         node.displayFirst();
         node.displayLast();
         node.displayCount();
-        node.displayPrvSuss(0);
+        node.displayPrvSuss(25);
     }
 }

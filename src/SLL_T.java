@@ -63,7 +63,6 @@ public class SLL_T {
 
 
     /*Inserting end*/
-
     /*Deleting start*/
     void deleteFirst(){
 
@@ -72,52 +71,61 @@ public class SLL_T {
             return;
         }
 
-            head = head.next;
+        head = head.next;
 
     }
-    //fix this
     void deleteLast(){
+        Node cur = head;
+        if (isEmpty()){
+            System.out.println("\nthe list are empty");
+            return;
+        }
+        if (isHeadEqTail()){
+            tail = head= null;
 
-    if (isEmpty()){
-        System.out.println("\nthe list are empty");
-        return;
-    }
+            return;
 
-
-
-
+        }
+        while (cur.next != tail){
+            cur=cur.next;
+        }
+        cur.next = null;
+        tail = cur;
 
     }
 
     void deleteAfterNode(int Value){
+        Node curr = head;
         if(isEmpty()){
             System.out.println("\nEmpty List");
             return;
         }
 
-                Node curr = head;
-                while(curr!=null&&curr.data!=Value){
-                    curr = curr.next;
-                }
-                if (curr == null){
-                System.out.println("\nthere is no number equals "+Value);
-                return;
-                }
-                if (curr.next == null) {
-                    System.out.println("\nthere is nothing after this number "+Value);
-                }
-                else {
 
-
-                    curr.next = curr.next.next;
-
-            }
+        while(curr!=null&&curr.data!=Value){
+            curr = curr.next;
         }
+        if (curr == null){
+            System.out.println("\nthere is no number equals "+Value);
+            return;
+        }
+        if (curr.next == null) {
+            System.out.println("\nthere is nothing after this number "+Value);
+        }
+        else {
+            if (curr.next ==tail){
+                deleteLast();
+                return;
+            }
+
+            curr.next = curr.next.next;
+
+        }
+    }
 
 
 
     /*Deleting end*/
-
     /*Printing start*/
     void displayList(){
         if (isEmpty()){
@@ -125,7 +133,7 @@ public class SLL_T {
             return;
         }
         Node cur = head;
-        while (cur!=null){
+        while (cur!=tail.next){
 
             System.out.print(cur.data+" ");
             cur=cur.next;
@@ -135,15 +143,21 @@ public class SLL_T {
     void displayFirst(){
         if (isEmpty()){
             System.out.println("\nthe set are empty");
+            return;
         }
         System.out.println("\nThe Head "+head.data);
     }
     void displayLast(){
+        if (isEmpty()){
+            System.out.println("\nthe set are empty");
+            return;
+        }
         System.out.println("\nThe Tail "+tail.data);
     }
     void displayCount(){
         System.out.println("\nThe count of the set "+Count());
     }
+
     void displayPrvSuss(int value){
         Node cur = head;
 
@@ -151,8 +165,14 @@ public class SLL_T {
             System.out.println("the set are empty");
             return;
         }
+        if (isHeadEqTail()){
+            System.out.println("no suss in here ");
+            return;
+        }
         if (value==head.data){
+
             System.out.println("you there is no prv");
+
             System.out.println("the Suss are"+head.next.data);
             return;
 
@@ -222,6 +242,13 @@ public class SLL_T {
 
             return false;
 
+    }
+    private boolean isHeadEqTail(){
+        if (head == tail){
+            return true;
+        }
+
+        return false;
     }
 
 }

@@ -3,9 +3,9 @@ public class test_SLL_nT {
 
         SLL_nT node = new SLL_nT();
         //the complate test for the methods
+        //the complate test for the methods
 
         node.insertFirst(25);
-        node.insertFirst(80);
         node.insertLast(30);
         node.insertAfterNode(28,25);
         node.insertLast(80);
@@ -25,17 +25,27 @@ public class test_SLL_nT {
         //deleting data
         node.deleteFirst();
         node.deleteLast();
-        node.deleteAfterNode(25);
+
+
+
+
+
+
+
 
         node.deleteAfterNode(30);
         node.deleteAfterNode(28);
+        node.deleteLast();
+
+
 
         //display the set after the deletion
+
 
         node.displayList();
         node.displayFirst();
         node.displayLast();
         node.displayCount();
-        node.displayPrvSuss(100);
+        node.displayPrvSuss(25);
     }
 }
