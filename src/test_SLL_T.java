@@ -4,7 +4,7 @@ public class test_SLL_T {
         SLL_T node = new SLL_T();
 
 
-        //the complate test for the methods
+        //the complete test for the methods
 
         node.insertFirst(25);
         node.insertLast(30);
