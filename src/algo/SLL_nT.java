@@ -1,4 +1,4 @@
-
+package algo;
 
 public class SLL_nT {
 
@@ -143,6 +143,7 @@ public class SLL_nT {
       cur=cur.next;
 
     }
+    System.out.println();
 
 
 

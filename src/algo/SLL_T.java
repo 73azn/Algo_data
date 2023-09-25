@@ -1,3 +1,5 @@
+package algo;
+
 public class SLL_T {
     Node head ;
     Node tail;
@@ -139,6 +141,7 @@ public class SLL_T {
             cur=cur.next;
 
         }
+        System.out.println();
     }
     void displayFirst(){
         if (isEmpty()){
