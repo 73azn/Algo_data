@@ -51,6 +51,7 @@ public class SLL_nT {
 
     if (isEmpty())
     {
+      System.out.println("the set are empty so ("+data+") are the head");
       head = newNode;
       return;
     }
