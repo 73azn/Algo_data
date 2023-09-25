@@ -4,7 +4,7 @@
 public class SLL_nT {
 
   Node head;
-  int count = 0 ;
+  private int count ;
 
   //under this comment all of it are methods and algorithms
 
@@ -13,33 +13,35 @@ public class SLL_nT {
     Node newNode = new Node(data);
     if (isEmpty()) {
       head = newNode;
+      return;
     }
-    else {
-      newNode.next = head;
-      head = newNode;
-    }
+
+    newNode.next = head;
+    head = newNode;
+
 
   }
 
-  void insertLast(int data){
+  void insertLast(int data) {
     Node newNode = new Node(data);
     Node cur = head;
     if (isEmpty()){
       head = newNode;
+      return;
     }
-    else {
-
-      while (cur.next != null) {
-        cur=cur.next;
-
-      }
-
-      cur.next=newNode;
-      cur.next.next=null;
 
 
+    while (cur.next != null) {
+      cur=cur.next;
 
     }
+
+    cur.next=newNode;
+    cur.next.next=null;
+
+
+
+
   }
 
   void insertAfterNode(int data, int Value){
@@ -50,83 +52,91 @@ public class SLL_nT {
 
     if (isEmpty())
     {
-      head = newNode;
+      System.out.println("\nNo node with value " + Value + " found.");
+      return;
     }
 
+    Node cur = head;
 
-
-
-    else{
-      if (!validNum(Value)){
-        System.out.println("there is no number equals "+Value);
-      }
-      else {
-        Node cur = head;
-
-        while(cur.data!=Value){
-          cur=cur.next;
-        }
-        newNode.next = cur.next;
-        cur.next = newNode;
-      }
+    while(cur!=null && cur.data!=Value){
+      cur=cur.next;
     }
-    /*inserting ends here*/
-
-
-
-
+    if (cur == null){
+      System.out.println("\nNo node with value " + Value + " found.");
+    }
+    else {
+      newNode.next = cur.next;
+      cur.next = newNode;
+    }
   }
+
+  /*inserting ends here*/
+
+
+
+
+
 
   /*delete start here*/
   void deleteFirst(){
 
     if (isEmpty()){
-      System.out.println("the list are empty");
+      System.out.println("\nthe list are empty");
+      return;
     }
-    else {
-      head = head.next;
-    }
+
+    head = head.next;
+
   }
   void deleteLast(){
     Node cur = head;
 
     if (isEmpty()){
-      System.out.println("the array are empty");
+      System.out.println("\nthe array are empty");
+      return;
     }
-    else {
-      while (cur.next.next!=null){cur=cur.next;}
-      cur.next = null;
+    if (cur.next == null){
+      head=null;
+      return;
     }
+
+    while (cur.next.next!=null){cur=cur.next;}
+
+    cur.next = null;
+
 
   }
-  void deleteAfterNode(int Value){
-    if(isEmpty()){
-      System.out.println("Empty List");
+  void deleteAfterNode(int Value) {
+    if (isEmpty()) {
+      System.out.println("\nEmpty List");
+      return;
+    }
+
+    Node curr = head;
+    while (curr != null && curr.data != Value) {
+      curr = curr.next;
+    }
+
+    if (curr == null) {
+      System.out.println("\nNo node with value " + Value + " found.");
+      return;
+    }
+
+    if (curr.next == null) {
+      System.out.println("\nNo node to delete after " + Value + ".");
     }
     else {
-      if (!validNum(Value)){
-        System.out.println("there is no number equals "+Value);
-      }
-
-
-      else {
-        Node curr = head;
-        while(curr.data != Value){
-          curr = curr.next;
-        }
-        if (curr.next == null){
-          System.out.println("there is nothing after this number");
-        }
-        else {
-          curr.next = curr.next.next;
-        }
-      }
+      curr.next = curr.next.next;
     }
   }
   /*delete ends here*/
 
   /*Printing start here*/
   void displayList(){
+    if (isEmpty()){
+      System.out.println("\nthe set are Empty");
+      return;
+    }
     Node cur = head;
     while (cur!=null){
 
@@ -134,27 +144,78 @@ public class SLL_nT {
       cur=cur.next;
 
     }
+    System.out.println();
 
 
 
 
   }
   void displayFirst(){
-    System.out.println("the head "+head.data);
+    if (isEmpty()){
+      System.out.println("\nthe set are Empty");
+      return;
+    }
+
+    System.out.println("\nthe head "+head.data);
   }
 
   void displayLast(){
+    if (isEmpty()){
+      System.out.println("\nthe set are Empty");
+      return;
+    }
     Node cur = head;
     while (cur.next!=null){
       cur = cur.next;
 
     }
-    System.out.println("the tail "+cur.data);
+    System.out.println("\nthe tail "+cur.data);
   }
 
   void displayCount(){
-    System.out.println("the number of the nodes are : "+Count());
+    if (isEmpty()){
+      System.out.println("\nthe set are Empty");
+      return;
+    }
+    System.out.println("\nthe number of the nodes are : "+Count());
   }
+  void displayPrvSuss(int value){
+    Node cur = head;
+
+    if (isEmpty()){
+      System.out.println("the set are empty");
+      return;
+    }
+
+
+    while (cur.next!=null&&cur.next.data!=value){
+      cur=cur.next;
+    }
+    if (value==head.data){
+      System.out.println("there is no prv");
+      if (isHeadEqTail(cur)){
+        System.out.println("no suss in here ");
+        return;
+      }
+      System.out.println("the Suss are "+head.next.data);
+      return;
+
+    }
+
+    if (cur.next==null) {
+      System.out.println("\nNo node with value " + value + " found.");
+      return;
+    }
+    System.out.println("the prv are "+cur.data);
+    if (cur.next.next ==null){
+      System.out.println("the Suss are empty");
+      return;
+    }
+    System.out.println("the Suss are "+cur.next.next.data);
+  }
+
+
+
   /*printing ends here*/
 
   /*traversing start here*/
@@ -165,16 +226,16 @@ public class SLL_nT {
 
       return count;
     }
-    else{
-      while (temp!=null){
-        count++;
-        temp = temp.next;
 
-      }
-
-      return count;
+    while (temp!=null){
+      count++;
+      temp = temp.next;
 
     }
+
+    return count;
+
+
 
   }
   boolean validNum(int value) {
@@ -202,15 +263,21 @@ public class SLL_nT {
     {
       return true;
     }
-    else {
-      return false;
+
+    return false;
+
+  }
+
+  private boolean isHeadEqTail(Node cur){
+
+    if (head == cur){
+      return true;
     }
+
+
+    return false;
   }
 
 
 
-
 }
-
-
-
