@@ -51,6 +51,7 @@ public class SLL_T {
         }
 
             Node cur = head;
+
         while(cur!=null&&cur.data!=Value)
         {
             cur=cur.next;
