@@ -1,9 +1,9 @@
-package algo;
+package SingleLL.Node;
 
-public class test_SLL_T {
+public class test_nT {
     public static void main(String[] args){
+        nT myList = new nT();
 
-        SLL_T myList = new SLL_T();
         System.out.println("test 1\n======================================");
         // Test 1: Insert at the beginning
         myList.insertFirst(10);

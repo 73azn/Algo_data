@@ -1,6 +1,6 @@
-package algo;
+package SingleLL.Node;
 
-public class SLL_nT {
+public class nT {
 
   Node head;
   private int count ;

@@ -1,6 +1,6 @@
-package algo;
+package SingleLL.Node;
 
-public class SLL_T {
+public class T {
     Node head ;
     Node tail ;
 
