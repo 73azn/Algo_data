@@ -25,6 +25,7 @@ public class test_SLL_nT {
         myList.deleteLast();
         myList.displayList(); // Expected output: 10 25
 
+
         // Test 6: Delete after a specific node
         myList.deleteAfterNode(10);
         myList.displayList(); // Expected output: 10
@@ -48,6 +49,15 @@ public class test_SLL_nT {
         //                     the Suss are 30
         myList.displayPrvSuss(30); // Expected output: the prv are 20
         //                     no suss in here
+        myList.deleteLast();
+        myList.deleteLast();
+        myList.deleteLast();
+        myList.deleteLast();
+        myList.insertFirst(1);
+        myList.insertAfterNode(2,1);
+        myList.insertLast(3);
+        myList.insertLast(1);
+        myList.deleteLast();
         myList.displayList();
         myList.displayFirst();
         myList.displayLast();

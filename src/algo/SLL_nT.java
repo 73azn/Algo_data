@@ -259,23 +259,10 @@ public class SLL_nT {
   /*general method*/
 
   private boolean isEmpty(){
-    if (head ==null)
-    {
-      return true;
-    }
-
-      return false;
-
-  }
+  return head == null;}
 
   private boolean isHeadEqTail(Node cur){
-
-    if (head == cur){
-      return true;
-    }
-
-
-    return false;
+ return head == cur;
   }
 
 

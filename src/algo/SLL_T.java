@@ -2,7 +2,7 @@ package algo;
 
 public class SLL_T {
     Node head ;
-    Node tail;
+    Node tail ;
 
     private int count;
 
@@ -38,13 +38,15 @@ public class SLL_T {
     void insertAfterNode(int data, int Value){
         Node newNode = new Node(data);
 
-
-
-
         if (isEmpty())
         {
-            System.out.println("the set are empty so ("+data+") are the head");
-            head = newNode;
+            System.out.println("the set are empty so ("+data+") will be deleted");
+
+            return;
+        }
+        if (isHeadEqTail()){
+
+            insertLast(newNode.data);
             return;
         }
 
@@ -58,9 +60,8 @@ public class SLL_T {
 
             return;
         }
-
-                newNode.next = cur.next;
-                cur.next = newNode;
+        newNode.next = cur.next;
+        cur.next = newNode;
 
     }
 
@@ -78,24 +79,30 @@ public class SLL_T {
 
     }
     void deleteLast(){
-        Node cur = head;
+
         if (isEmpty()){
             System.out.println("\nthe list are empty");
             return;
         }
         if (isHeadEqTail()){
-            tail = head= null;
+            head = tail= null;
 
             return;
 
         }
-        while (cur.next != tail){
-            cur=cur.next;
-        }
+
+
+        Node cur = head;
+        for (;cur.next!=tail;cur=cur.next);
         cur.next = null;
-        tail = cur;
+        tail=cur;
+
+
+
+
 
     }
+
 
     void deleteAfterNode(int Value){
         Node curr = head;
@@ -216,16 +223,16 @@ public class SLL_T {
         return false;
     }
     int Count(){
-        Node temp = head;
+        Node cur = head;
         count = 0;
         if (isEmpty()){
 
             return count;
         }
 
-            while (temp!=null){
+            while (cur!=null){
                 count++;
-                temp = temp.next;
+                cur = cur.next;
 
             }
 
@@ -239,20 +246,12 @@ public class SLL_T {
 
 
     private boolean isEmpty(){
-        if (head==null)
-        {
-            return true;
-        }
 
-            return false;
+    return head == null;
 
     }
     private boolean isHeadEqTail(){
-        if (head == tail){
-            return true;
-        }
-
-        return false;
+        return head == tail;
     }
 
 }
