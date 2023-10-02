@@ -45,14 +45,17 @@ public class T {
             return;
         }
 
+
         for (;cur!=null&&cur.data !=value;cur=cur.next);
+
 
         if (cur == null){
 
             System.out.println("no node with this value "+value);
             return;
         }
-        if (cur == tail){insertLast(data);
+        if (cur == tail){
+            insertLast(data);
             return;}
 
         newNode.next = cur.next;
@@ -112,7 +115,10 @@ public class T {
             return;
         }
 
-
+        if (cur.next == tail){
+            deleteLast();
+            return;
+        }
 
         if (cur == head){
             cur.next = cur.next.next;
@@ -123,10 +129,7 @@ public class T {
             System.out.println("no node after "+ value);
             return;
         }
-        if (cur.next == tail){
-            deleteLast();
-            return;
-        }
+
         if (cur.data == value){
             cur.next = cur.next.next;
             cur.next.prv = cur;
@@ -190,29 +193,38 @@ public class T {
         }
 
 
-        if (cur == head){
-            System.out.println("there is no pre");
-            System.out.println("the suss are "+head.next.data);
+        if (cur.next != null & cur.prv != null){
+            System.out.println("the prv are "+cur.prv.data);
+            System.out.println("the suss are "+cur.next.data);
             return;
         }
-        if (cur == tail){
-            System.out.println("the pre are "+ tail.prv.data);
-            System.out.println("there is no suss");
+        if (cur.prv == null&cur.next != null){
+            System.out.println("no prv");
+            System.out.println("the suss are "+cur.next.data);
+            return;
+
+        }
+        if (cur.next == null&cur.prv!=null){
+            System.out.println("the prv are "+cur.prv.data);
+            System.out.println("no suss");
             return;
         }
-        if (cur.data == value){
-            System.out.println("the pre are "+cur.prv.data);
-            System.out.println("the suss are "+ cur.next.data);
+
+        System.out.println("there is no prv or suss");
+
+}
+
+    void displayRevlist(){
+        if (isEmpty()){
+            System.out.println("the set are empty");
             return;
         }
+        Node cur = tail;
 
-
-
-
-        System.out.println("there is an error");
-
-
-
+        for (;cur!= null;cur=cur.prv){
+            System.out.print(cur.data + " ");
+        }
+        System.out.println();
     }
     //display end
 
