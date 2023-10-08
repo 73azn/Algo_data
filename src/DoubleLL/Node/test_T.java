@@ -21,7 +21,7 @@ public class test_T {
         myList.insertAfterNode(25, 10);
         myList.displayList(); // Expected output: 10 25 20
 
-        // Test 4: Delete first node
+        // Test 4: Delete first node09A
         myList.deleteFirst();
         myList.displayList(); // Expected output:  25 20
 

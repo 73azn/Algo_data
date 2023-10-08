@@ -178,7 +178,7 @@ public class T {
             return;
         }
         if (isHeadEqTail()){
-            System.out.println("no suss in here ");
+            System.out.println("no suss in here nor prv");
             return;
         }
         if (value==head.data){

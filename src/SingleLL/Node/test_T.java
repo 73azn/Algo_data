@@ -33,10 +33,7 @@ public class test_T {
         myList.displayLast();//Expected output: The Tail 25
 
         // Test 7: Display the first node
-        myList.displayFirst(); // Expected output: the head 10
 
-        // Test 8: Display the last node
-        myList.displayLast(); // Expected output: the tail 10
 
         // Test 9: Display the count of nodes
         myList.displayCount(); // Expected output: the number of the nodes are: 1
@@ -46,6 +43,7 @@ public class test_T {
         myList.displayList();
         myList.insertLast(20);
         myList.insertLast(30);
+        myList.displayList();
         myList.displayPrvSuss(10);
         // Expected output:
         // you there is no prv
@@ -67,11 +65,31 @@ public class test_T {
         System.out.println("======================================");
 
         System.out.println("test 3\n======================================");
+        myList.insertFirst(3);
 
+        myList.insertFirst(4);
+        myList.insertFirst(5);
+        myList.deleteAfterNode(5);
+        System.out.println("passed 1");
+        myList.displayList();
+
+        myList.deleteAfterNode(5);
+        System.out.println("passed 2");
+
+
+        myList.displayPrvSuss(5);
+
+        System.out.println("passed 3");
+        myList.insertLast(3);
+        myList.displayPrvSuss(3);
+        System.out.println("passed 4");
+
+        myList.displayList();
         myList.insertFirst(1);
         myList.insertAfterNode(2,1);
         myList.insertLast(3);
         myList.displayList();
+
         myList.displayFirst();
         myList.displayLast();
         System.out.println("======================================");
