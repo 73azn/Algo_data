@@ -2,7 +2,7 @@ package DoubleLL.Node;
 
 public class test_stack {
 
-    public static void Main(String[] args){
+    public static void main(String[] args){
 
         stack myStack = new stack();
 
@@ -11,6 +11,27 @@ public class test_stack {
         myStack.push(2);
 
         myStack.push(3);
+
+        myStack.pop();
+        myStack.reverseStack();
+
+        myStack.peek();
+
+        myStack.reverseStack();
+
+        myStack.push(1);
+        myStack.reverseStack();
+        myStack.push(2);
+        myStack.reverseStack();
+
+        myStack.push(3);
+
+        myStack.pop();
+        myStack.reverseStack();
+
+
+        myStack.peek();
+
 
     }
 

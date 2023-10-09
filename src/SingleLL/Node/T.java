@@ -246,7 +246,7 @@ public class T {
     /*Traversing end*/
 
 
-    private boolean isEmpty(){
+     boolean isEmpty(){
 
     return head == null;
 

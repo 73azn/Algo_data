@@ -1,6 +1,8 @@
 package SingleLL.Node;
 
 public class test_nT {
+
+
     public static void main(String[] args){
         nT myList = new nT();
 
