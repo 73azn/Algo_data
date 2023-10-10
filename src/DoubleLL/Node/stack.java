@@ -5,12 +5,12 @@ public class stack {
     T stack = new T();
      private int P = 0;
 
-    void push(int data){
+    public void push(int data){
         stack.insertFirst(data);
         stack.displayList();
         size();
     }
-    int pop(){
+    public int pop(){
         if (isEmpty()){
             System.out.println("the set are empty");
             return 0 ;
@@ -30,7 +30,7 @@ public class stack {
 
     }
 
-    int peek(){
+    public int peek(){
         if (isEmpty()){
             System.out.println("set are empty");
             return 0;
@@ -46,7 +46,7 @@ public class stack {
         return 0;
     }
 
-    void reverseStack(){
+    public void reverseStack(){
         int size = size();
         System.out.println("========start rev =========");
         P = 1;

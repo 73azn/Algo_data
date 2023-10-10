@@ -8,7 +8,7 @@ public class T {
 
 
     /*Inserting start*/
-    void insertFirst(int data) {
+    public void insertFirst(int data) {
         Node newNode = new Node(data);
         if (isEmpty()) {
             head = tail= newNode;
@@ -22,7 +22,7 @@ public class T {
 
     }
 
-    void insertLast(int data){
+    public void insertLast(int data){
         Node newNode = new Node(data);
         if (isEmpty()){
             head=tail=newNode;
@@ -35,7 +35,7 @@ public class T {
 
     }
 
-    void insertAfterNode(int data, int Value){
+    public void insertAfterNode(int data, int Value){
         Node newNode = new Node(data);
 
         if (isEmpty())
@@ -69,7 +69,7 @@ public class T {
 
     /*Inserting end*/
     /*Deleting start*/
-    void deleteFirst(){
+    public void deleteFirst(){
 
         if (isEmpty()){
             System.out.println("the list are empty");
@@ -79,7 +79,7 @@ public class T {
         head = head.next;
 
     }
-    void deleteLast(){
+    public void deleteLast(){
 
         if (isEmpty()){
             System.out.println("\nthe list are empty");
@@ -105,7 +105,7 @@ public class T {
     }
 
 
-    void deleteAfterNode(int Value){
+    public void deleteAfterNode(int Value){
         Node curr = head;
         if(isEmpty()){
             System.out.println("\nEmpty List");
@@ -138,7 +138,7 @@ public class T {
 
     /*Deleting end*/
     /*Printing start*/
-    void displayList(){
+    public void displayList(){
         if (isEmpty()){
             System.out.println("\nthe set are empty");
             return;
@@ -152,25 +152,25 @@ public class T {
         }
         System.out.println();
     }
-    void displayFirst(){
+    public void displayFirst(){
         if (isEmpty()){
             System.out.println("\nthe set are empty");
             return;
         }
         System.out.println("\nThe Head "+head.data);
     }
-    void displayLast(){
+    public void displayLast(){
         if (isEmpty()){
             System.out.println("\nthe set are empty");
             return;
         }
         System.out.println("\nThe Tail "+tail.data);
     }
-    void displayCount(){
+    public void displayCount(){
         System.out.println("\nThe count of the set "+Count());
     }
 
-    void displayPrvSuss(int value){
+    public void displayPrvSuss(int value){
         Node cur = head;
 
         if (isEmpty()){
@@ -208,7 +208,7 @@ public class T {
     /*Printing end*/
 
     /*Traversing start*/
-    boolean validNum(int value) {
+    public boolean validNum(int value) {
         Node cur = head;
 
 
@@ -223,7 +223,7 @@ public class T {
 
         return false;
     }
-    int Count(){
+    public int Count(){
         Node cur = head;
         count = 0;
         if (isEmpty()){

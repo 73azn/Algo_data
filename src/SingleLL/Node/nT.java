@@ -8,7 +8,7 @@ public class nT {
   //under this comment all of it are methods and algorithms
 
   /* inserting start here*/
-  void insertFirst(int data) {
+  public void insertFirst(int data) {
     Node newNode = new Node(data);
     if (isEmpty()) {
       head = newNode;
@@ -21,7 +21,7 @@ public class nT {
 
   }
 
-  void insertLast(int data) {
+  public void insertLast(int data) {
     Node newNode = new Node(data);
     Node cur = head;
     if (isEmpty()){
@@ -43,7 +43,7 @@ public class nT {
 
   }
 
-  void insertAfterNode(int data, int Value){
+  public void insertAfterNode(int data, int Value){
     Node newNode = new Node(data);
 
 
@@ -78,7 +78,7 @@ public class nT {
 
 
   /*delete start here*/
-  void deleteFirst(){
+  public void deleteFirst(){
 
     if (isEmpty()){
       System.out.println("\nthe list are empty");
@@ -88,7 +88,7 @@ public class nT {
       head = head.next;
 
   }
-  void deleteLast(){
+  public void deleteLast(){
     Node cur = head;
 
     if (isEmpty()){
@@ -106,7 +106,7 @@ public class nT {
 
 
   }
-  void deleteAfterNode(int Value) {
+  public void deleteAfterNode(int Value) {
     if (isEmpty()) {
       System.out.println("\nEmpty List");
       return;
@@ -132,7 +132,7 @@ public class nT {
   /*delete ends here*/
 
   /*Printing start here*/
-  void displayList(){
+  public void displayList(){
     if (isEmpty()){
       System.out.println("\nthe set are Empty");
       return;
@@ -150,7 +150,7 @@ public class nT {
 
 
   }
-  void displayFirst(){
+  public void displayFirst(){
     if (isEmpty()){
       System.out.println("\nthe set are Empty");
       return;
@@ -159,7 +159,7 @@ public class nT {
     System.out.println("\nthe head "+head.data);
   }
 
-  void displayLast(){
+  public void displayLast(){
     if (isEmpty()){
       System.out.println("\nthe set are Empty");
       return;
@@ -172,14 +172,14 @@ public class nT {
     System.out.println("\nthe tail "+cur.data);
   }
 
-  void displayCount(){
+  public void displayCount(){
     if (isEmpty()){
       System.out.println("\nthe set are Empty");
       return;
     }
     System.out.println("\nthe number of the nodes are : "+Count());
   }
-  void displayPrvSuss(int value){
+  public void displayPrvSuss(int value){
     Node cur = head;
 
     if (isEmpty()){
@@ -219,7 +219,7 @@ public class nT {
   /*printing ends here*/
 
   /*traversing start here*/
-  int Count(){
+  public int Count(){
     Node temp = head;
     count = 0;
     if (isEmpty()){
@@ -238,7 +238,7 @@ public class nT {
 
 
   }
-   boolean validNum(int value) {
+   public boolean validNum(int value) {
     Node cur = head;
 
 

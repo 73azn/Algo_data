@@ -7,7 +7,7 @@ public class T {
 
 
     //insert start
-    void insertFirst(int data){
+    public void insertFirst(int data){
 
         Node newNode = new Node(data);
         if (isEmpty()){
@@ -22,7 +22,7 @@ public class T {
 
     }
 
-    void insertLast(int data){
+    public void insertLast(int data){
         Node newNode = new Node(data);
 
         if (isEmpty()){
@@ -37,7 +37,7 @@ public class T {
 
     }
 
-    void insertAfterNode(int data, int value){
+    public void insertAfterNode(int data, int value){
         Node cur = head;
         Node newNode = new Node(data);
         if (isEmpty()){
@@ -73,7 +73,7 @@ public class T {
     //insert end
 
     //Deleting start
-    void deleteFirst (){
+    public void deleteFirst(){
         if (isEmpty()){
             System.out.println("the set are empty");
             return;
@@ -86,7 +86,7 @@ public class T {
         head.prv = null;
 
     }
-    void deleteLast(){
+    public void deleteLast(){
         if (isEmpty()){
             System.out.println("the set are empty");
             return;
@@ -102,7 +102,7 @@ public class T {
 
 
     }
-    void deleteAfterNode(int value){
+    public void deleteAfterNode(int value){
         Node cur = head;
         if (isEmpty()){
             System.out.println("the set are empty");
@@ -142,7 +142,7 @@ public class T {
     //Deleting end
 
     //display start
-    void displayList(){
+    public void displayList(){
         Node cur = head;
 
         if (isEmpty()){
@@ -157,7 +157,7 @@ public class T {
 
 
     }
-    void displayFirst(){
+    public void displayFirst(){
         if (isEmpty()){
 
             return;
@@ -167,7 +167,7 @@ public class T {
     }
 
 
-    void displayTail(){
+    public void displayTail(){
 
         if (isEmpty()){
 
@@ -178,11 +178,11 @@ public class T {
 
     }
 
-    void displayCount(){
+    public void displayCount(){
         System.out.println("the amount of nodes are "+Count());
     }
 
-    void displayPreSuss(int value){
+    public void displayPreSuss(int value){
         Node cur = head;
 
         for (; cur!=null&&cur.data!= value;cur=cur.next);
@@ -214,7 +214,7 @@ public class T {
 
 }
 
-    void displayRevlist(){
+    public void displayRevlist(){
         if (isEmpty()){
             System.out.println("the set are empty");
             return;
@@ -229,7 +229,7 @@ public class T {
     //display end
 
     //Traversing start
-    int Count (){
+    public int Count(){
         Node cur = head;
         if (isEmpty()){
             return 0;
@@ -255,7 +255,7 @@ public class T {
         return head == tail;
     }
 
-    boolean validNum(int value) {
+    public boolean validNum(int value) {
         Node cur = head;
 
 

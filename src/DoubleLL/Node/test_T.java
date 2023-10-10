@@ -29,7 +29,7 @@ public class test_T {
         myList.deleteLast();
         myList.displayList(); // Expected output: 25
 
-        // Test 6: Delete after a specific node
+        // Test 6: Delete after a specific node/'
         myList.deleteAfterNode(10); //Expected output: there is no number equals 10
         myList.displayList(); // Expected output: 25
         myList.displayFirst();//Expected output: The Head 25
