@@ -1,3 +1,4 @@
+package test;
 import SingleLL.Node.T;
 import SingleLL.Node.nT;
 import SingleLL.Node.stack;
@@ -5,6 +6,11 @@ import SingleLL.Node.stack;
 public class main {
 
     public static void main(String[] args){
+
+
+
+
+
 
         System.out.println("==============Single linked list no tail test==============");
 
@@ -38,6 +44,18 @@ public class main {
 
 
         System.out.println("==============END==============");
+
+    SingleLL.Node.nT test = new SingleLL.Node.nT();
+
+    test.insertFirst(1);
+    test.insertFirst(2);
+    test.insertFirst(3);
+    test.insertFirst(4);
+    test.insertFirst(5);
+    test.deleteNode(0);
+
+    test.displayList();
+
     }
     //method for the tests
     //single linked list no tail

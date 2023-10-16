@@ -133,6 +133,37 @@ public class T {
 
         }
     }
+    public void deleteNode(int index){
+    if (isEmpty()){
+        System.out.println("set are empty");
+        return;
+    }
+
+    int count = Count();
+    if (index == 0){
+        deleteFirst();
+        return;
+    }
+    if (count == index+1){
+        deleteLast();
+        return;
+    }
+
+    Node cur = head;
+
+    for (int i = 0 ; cur != null && i != index;i++){
+        cur = cur.next;
+    }
+    if (cur==null){
+        System.out.println("index outbound");
+        return;
+    }
+
+
+    cur.data = cur.next.data;
+    cur.next = cur.next.next;
+
+    }
 
 
 
