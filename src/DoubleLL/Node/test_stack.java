@@ -5,6 +5,7 @@ public class test_stack {
     public static void main(String[] args){
 
         stack myStack = new stack();
+        stack st = new stack();
 
         myStack.push(1);
 

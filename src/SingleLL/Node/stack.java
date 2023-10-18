@@ -5,7 +5,7 @@ package SingleLL.Node;
 public class stack {
     T stack = new T();
 
-    private int P =0;
+    private int P = 0;
 
     public void push(int data){
         stack.insertFirst(data);
