@@ -46,11 +46,14 @@ public class Queue {
     //Deleting End
 
     //Traversing Start
-//    public void Search(int element) {
-//        Queue.search(element);
-//    }
+    public void Search(int element) {
+        Queue.search(element);
+    }
     //Traversing end
 
+    public void reverseQueue() {
+        Queue.ReverseQueue();
+    }
     public void getTop(){
         if(isEmpty()){
             System.out.println("Empty list");

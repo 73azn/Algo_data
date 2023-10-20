@@ -425,7 +425,11 @@ public class T {
     }
 
     public void reverseQueue() {
-        if (isEmpty() || isHeadEqTail()) {
+        if (isEmpty()) {
+            System.out.println("Empty list");
+            return;
+        }
+        if(isHeadEqTail()) {
             System.out.println("List with only one element");
             return;
         }

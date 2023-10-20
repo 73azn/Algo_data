@@ -387,17 +387,54 @@ public class T {
         }
         return count;
     }
+    public void search(int element) {
+        if(isEmpty()){
+            System.out.println("Empty list");
+            return;
+        } else {
+            Node curr = head;
+            while(curr != null) {
+                if(curr.next == null && curr.data != element) {
+                    System.out.println("Not found element " + element);
+                    return;
+                } else if(curr.data == element){
+                    System.out.println("Found it");
+                    return;
+                }
+                curr = curr.next;
+            }
+            if(curr == null) {
+                System.out.println("Not found element " + element);
 
-    public void ReverseQueue() {
-        Node curr = head;
-        Node prv = null;
-        while(curr != null) {
-            prv = curr;
-            curr = head;
+            }
         }
-         }
-//    Traversing end
 
+    }
+
+
+//    Traversing end
+public void ReverseQueue() {
+    if (isEmpty()) {
+        System.out.println("Empty list");
+        return;
+    }
+    if(isHeadEqTail()) {
+        System.out.println("List with only one element");
+        return;
+    }
+    Node curr = head;
+    Node prev = null;
+    Node nextNode;
+    while(curr != null) {
+        nextNode = curr.next;
+        curr.next = prev;
+        curr.prv = nextNode;
+        prev = curr;
+        curr = nextNode;
+    }
+    tail = head;
+    head = prev;
+}
 
 
     //general methods

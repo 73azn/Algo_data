@@ -21,6 +21,16 @@ public class Test_Queue {
         queue.InsertAfterFirst(80);
         queue.DeleteAllBeforeLast();
         queue.DeleteAllBeforeLast();
+        queue.Enqueue(6);
+        queue.Enqueue(7);
+        queue.Enqueue(8);
+        queue.reverseQueue();
+        queue.reverseQueue();
+        queue.Dequeue();
+        queue.Dequeue();
+        queue.Dequeue();
+        queue.Dequeue();
+        queue.Search(8);
         queue.displayList();
 
     }

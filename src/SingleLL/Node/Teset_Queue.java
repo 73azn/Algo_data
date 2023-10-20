@@ -61,8 +61,11 @@ public class Teset_Queue {
         q.Enqueue(4);
         q.Enqueue(5);
         q.displayList();
+        q.getTop();
         q.ReverseQueue();
         q.displayList();
+        q.Search(0);
+        q.getTop();
 //        reversequeue2();
 //        q.reverseQueue();
 //        q.display();
