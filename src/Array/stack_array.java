@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.Arrays;
+
 public class stack_array {
 
     int top = -1;
@@ -11,14 +13,21 @@ public class stack_array {
     int count = 0;
 
     stack_array(int size){
-        this.size =  size;
-        stack = new int[size];
+        if(size <= 0) {
+            size = 100;
+        } else {
+            this.size = size;
+            stack = new int[size];
+        }
     }
 
     void push(int data){
-        if (isFull()){
-            System.out.println("max size reached");
-            return;
+        if(isFull()) {
+            int[] arr = new int[stack.length * 2];
+            for(int i=0 ; i<arr.length ; i++) {
+                arr[i] = stack[i];
+            }
+            stack = arr;
         }
         top++;
         stack[top] = data;
@@ -44,8 +53,8 @@ public class stack_array {
 
     void displayStack(){
         System.out.println("----");
-        for (int i = size-1; i>=0;i--){
-            System.out.println(stack[i]);
+        for (int i = 0; i<=top ; i++){
+            System.out.print(stack[i] + " ");
         }
         System.out.println("----");
     }

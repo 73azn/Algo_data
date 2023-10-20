@@ -73,6 +73,7 @@ public class T {
             newNode.next = null;
             head.next = newNode;
             tail = newNode;
+            return;
         }
         newNode.next = head.next;
         head.next = newNode;
@@ -129,16 +130,18 @@ public class T {
 
     /*Inserting end*/
     /*Deleting start*/
-    public void deleteFirst(){
+    public int deleteFirst(){
         if (isEmpty()){
             System.out.println("the list are empty");
-            return;
+            return 0;
         }
         if (isHeadEqTail()){
             head = tail = null;
-            return;
+            return 0;
         }
+        int prvH = head.data;
         head = head.next;
+        return prvH;
     }
     public void deleteLast(){
         if (isEmpty()){
@@ -153,6 +156,7 @@ public class T {
         for (;cur.next!=tail;cur=cur.next);
         cur.next = null;
         tail=cur;
+
     }
 
 
@@ -237,6 +241,7 @@ public class T {
             System.out.println("Tere is no node after head");
         } else {
             head.next = null;
+            tail = head;
         }
     }
     public void deleteBeforeLast() {
@@ -418,5 +423,119 @@ public class T {
     private boolean isHeadEqTail(){
         return head == tail;
     }
+
+    public void reverseQueue() {
+        if (isEmpty() || isHeadEqTail()) {
+            System.out.println("List with only one element");
+            return;
+        }
+        Node curr = head;
+        Node prev = null;
+        Node nextNode;
+        while (curr != null) {
+            nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode;
+        }
+        tail = head;
+        head = prev;
+    }
+
+
+
+//    public void Enqueue2(int data) {
+//        Node newNode = new Node(data);
+//        if (isEmpty()) {
+//            head = tail = newNode;
+//            return;
+//        }
+//        newNode.next = head;
+//        head = newNode;
+//    }
+
+//    public void ReverseQueue() {
+////         Node curr = head;
+////         while(curr != null) {
+////             Enqueue2(Dequeue2());
+////             curr = curr.next;
+////         }
+//        stack stk = new stack();
+//        Queue queue = new Queue();
+//        if (isEmpty()) {
+//            System.out.println("Empty list");
+//            return;
+//        } else {
+//            while (!isEmpty()) {
+//                stk.push(displayTail());
+//                deleteLast();
+//            }
+//
+//            while (!stk.isEmpty()) {
+//                queue.Enqueue(stk.peek());
+//                stk.pop();
+//            }
+//        }
+//    }
+//        public void Display() {
+//            if(isEmpty()) {
+//                System.out.println("Empty list");
+//                return;
+//            } else {
+//                while(!isEmpty()) {
+//                    System.out.print(tail.data + " ");
+//                    deleteLast();
+//                }
+//            }
+//        }
+
+
+//        if(isEmpty()) {
+//            System.out.println("Empty list");
+//            return;
+//        }  else {
+//            Node curr = head;
+//            while(curr != null) {
+//                System.out.print(tail.data + " "); // 5 4 3
+//                deleteLast();
+//                curr = curr.next;
+//            }
+//        }
+
+//    public void Enqueue2(int data) {
+//         Node newNode = new Node(data);
+//         if(isEmpty()) {
+//             head = tail = newNode;
+//         } else {
+//             newNode.next = null;
+//             tail.next = newNode;
+//             tail = newNode;
+//         }
+//    }
+//    public int Dequeue2() {
+//         int prvData;
+//         if(isEmpty()) {
+//             System.out.println("Empty list");
+//             return 0;
+//         } else if(head == tail) {
+//             prvData = head.data;
+//            head = tail = null;
+//         } else {
+//             prvData = head.data;
+//             head = head.next;
+//         }
+//         return prvData;
+//    }
+//
+//
+//
+//
+//    public int displayTail(){
+//        if (isEmpty()){
+//            System.out.println("\nthe set are empty");
+//            return 0;
+//        }
+//        return tail.data;
+//    }
 
 }

@@ -44,8 +44,6 @@ public class T {
             System.out.println("no node with this value "+ value);
             return;
         }
-
-
         for (;cur!=null&&cur.data !=value;cur=cur.next);
 
 
@@ -62,13 +60,78 @@ public class T {
         newNode.prv = cur;
         cur.next.prv = newNode;
         cur.next= newNode;
+    }
 
 
+    public void insertAfterFirst(int element) {
+        Node newNode = new Node(element);
+        if (isEmpty()) {
+            System.out.println("Empty list");
+            return;
+        } else if (head == tail) {
+            newNode.next = null;
+            newNode.prv = head;
+            head.next = newNode;
+            tail = newNode;
+            return;
+        }
+        newNode.next = head.next;
+        newNode.prv = head;
+        head.next.prv = newNode;
+        head.next = newNode;
+    }
 
+    public void inserBeforeLast(int element) {
+        Node newNode = new Node(element);
+        if (isEmpty()) {
+            System.out.println("Empty list");
+            return;
+        }
+         else if(head == tail) {
+            newNode.next = head;
+            newNode.prv = null;
+            head.prv = newNode;
+            head = newNode;
+            return;
+        }
+            newNode.next = tail;
+            newNode.prv = tail.prv;
+             tail.prv.next = newNode;
+            tail.prv = newNode;
 
+        }
 
-
-
+    public void insertBeforeNode(int element, int value) {
+        Node newNode = new Node(value);
+        if(isEmpty()) {
+            System.out.println("Empty list");
+            return;
+        }
+        if (head.data == element){
+            newNode.next = head;
+            head.prv = newNode;
+            head = newNode;
+        } else if(tail.data == element) {
+            newNode.next = tail;
+            newNode.prv = tail.prv;
+            tail.prv.next = newNode;
+            tail.prv = newNode;
+        } else {
+            Node curr = head;
+            while (curr != null) {
+                  if (curr.data == element) {
+                    newNode.next = curr;
+                    newNode.prv = curr.prv;
+                    curr.prv.next = newNode;
+                    curr.prv = newNode;
+                    return;
+                }
+                curr = curr.next;
+            }
+            if (curr == null) {
+                System.out.println("Not found");
+            }
+        }
     }
     //insert end
 
@@ -79,28 +142,23 @@ public class T {
             return;
         }
         if (isHeadEqTail()){
-            head =tail=null;
+            head = tail = null;
             return;
         }
         head = head.next;
         head.prv = null;
-
     }
     public void deleteLast(){
         if (isEmpty()){
             System.out.println("the set are empty");
             return;
         }
-
         if (isHeadEqTail()){
-            head =tail=null;
+            head = tail = null;
             return;
         }
-
         tail.prv.next = null;
         tail = tail.prv;
-
-
     }
     public void deleteAfterNode(int value){
         Node cur = head;
@@ -170,6 +228,63 @@ public class T {
         cur.next = cur.next.next;
 
     }
+
+
+    public void deleteAfterFirst() {
+        if(isEmpty()) {
+            System.out.println("Empty list");
+            return;
+        } else if(head == tail) {
+            System.out.println("There is no node after head" );
+        } else if(head.next == tail) {
+            head.next = null;
+            tail = head;
+        }
+        else {
+            head.next = head.next.next;
+            head.next.next.prv = head;
+        }
+    }
+    public void deleteAllAfterFirst() {
+        if(isEmpty()) {
+            System.out.println("Empty list");
+            return;
+        } else if(head == tail) {
+            System.out.println("Tere is no node after head");
+        } else {
+            head.next = null;
+            tail = head;
+        }
+    }
+    public void deleteBeforeLast() {
+        if(isEmpty()) {
+            System.out.println("Empty list");
+            return;
+        } else if(head == tail) {
+            System.out.println("There is no node before tail");
+            return;
+        } else if (head.next == tail){
+            head = tail ;
+        } else {
+            tail.prv.prv.next = tail;
+            tail.prv = tail.prv.prv;
+        }
+    }
+    public void deleteAllBeforeLast() {
+        if(isEmpty()) {
+            System.out.println("Empty list");
+            return;
+        } else if(head == tail) {
+            System.out.println("There is no node before tail");
+            return;
+        } else if (head.next == tail){
+            head = tail ;
+        } else {
+            head = tail;
+        }
+
+    }
+
     //Deleting end
 
     //display start
@@ -182,7 +297,7 @@ public class T {
 
         for (;cur!=null;cur = cur.next){
             System.out.print(cur.data+" ");}
-        System.out.println();
+            System.out.println();
 
 
 
@@ -272,7 +387,16 @@ public class T {
         }
         return count;
     }
-    //Traversing end
+
+    public void ReverseQueue() {
+        Node curr = head;
+        Node prv = null;
+        while(curr != null) {
+            prv = curr;
+            curr = head;
+        }
+         }
+//    Traversing end
 
 
 

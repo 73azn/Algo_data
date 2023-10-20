@@ -1,5 +1,5 @@
 package SingleLL.Node;
-
+import SingleLL.Node.stack;
 public class Queue {
     T Queue = new T();
     //Inserting Start
@@ -31,6 +31,7 @@ public class Queue {
     }
     public void DeleteAfterFirst() {
         Queue.deleteAfterFirst();
+
     }
     public void DeleteAllAfterFirst() {
         Queue.deleteAllAfterFirst();
@@ -67,8 +68,29 @@ public class Queue {
 
 
     //Display
-    public void display() {
+//    public void display() {
+//        Queue.Display();
+//    }
+    public void displayList() {
         Queue.displayList();
     }
 
+    public void ReverseQueue() {
+        Queue.reverseQueue();
+//    }
+
+//    public void reverseQueue() {
+//        Queue.ReverseQueue();
+//    }
+//
+//    public int getTail() {
+//        return Queue.displayTail();
+//    }
+
+//    public void Degueue22 () {
+//        Queue.Dequeue2();
+//    }
+
+
+    }
 }
