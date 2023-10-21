@@ -78,6 +78,11 @@ public class Queue {
     }
 
 
+    public void ReverseQueue() {
+        Queue.ReverseQueue();
+    }
+
+
 
 //    public void reverseQueue() {
 //        Queue.ReverseQueue();

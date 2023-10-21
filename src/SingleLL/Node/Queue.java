@@ -77,6 +77,7 @@ public class Queue {
 
     public void ReverseQueue() {
         Queue.reverseQueue();
+    }
 //    }
 
 //    public void reverseQueue() {
@@ -93,4 +94,4 @@ public class Queue {
 
 
     }
-}
+

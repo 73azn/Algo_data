@@ -188,35 +188,22 @@ public class T {
 
         }
     }
-    public void deleteNode(int index){
+    public void deleteNode(int value){
     if (isEmpty()){
         System.out.println("set are empty");
         return;
     }
-
-    int count = Count();
-    if (index == 0){
-        deleteFirst();
-        return;
-    }
-    if (count == index+1){
-        deleteLast();
-        return;
-    }
-
     Node cur = head;
+    while (cur != null&&cur.next.data!=value){
 
-    for (int i = 0 ; cur != null && i != index;i++){
         cur = cur.next;
     }
-    if (cur==null){
-        System.out.println("index outbound");
+    if (cur == null){
+        System.out.println("the number not found");
         return;
     }
 
-
-    cur.data = cur.next.data;
-    cur.next = cur.next.next;
+    deleteAfterNode(cur.data);
 
     }
     public void deleteAfterFirst() {
@@ -391,13 +378,15 @@ public class T {
         if(isEmpty()){
             System.out.println("Empty list");
             return;
-        } else {
+        }
+        else {
             Node curr = head;
             while(curr != null) {
                 if(curr.next ==null && curr.data != element) {
                     System.out.println("Not found element " + element);
                     return;
-                } else if(curr.data == element){
+                }
+                else if(curr.data == element){
                     System.out.println("Found it");
                     return;
                 }

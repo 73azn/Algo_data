@@ -1,14 +1,31 @@
 package test;
+import Array.stack_array;
+import SingleLL.Node.Queue;
 import SingleLL.Node.T;
 import SingleLL.Node.nT;
 import SingleLL.Node.stack;
+import Array.*;
+
+import java.lang.reflect.Array;
 
 public class main {
 
     public static void main(String[] args){
 
 
-
+    /*for explaining
+    *
+    * in here only you will find method calls and to see it
+    * you will have to go all the way down
+    * to see all of the tests
+    *
+    * the names of the methods are the shortcut of the main class
+    *
+    * Ex for Single Linked list with no tail named like this (SLLNT)
+    *
+    * stand for every starting letter
+    *
+    * */
 
 
 
@@ -45,16 +62,24 @@ public class main {
 
         System.out.println("==============END==============");
 
-    SingleLL.Node.nT test = new SingleLL.Node.nT();
+        System.out.println("==============array stack test==============");
 
-    test.insertFirst(1);
-    test.insertFirst(2);
-    test.insertFirst(3);
-    test.insertFirst(4);
-    test.insertFirst(5);
-    test.deleteNode(0);
+        ARYS();
 
-    test.displayList();
+        System.out.println("==============END==============");
+
+        System.out.println("==============single linked list  queue test==============");
+
+        SLLQ();
+
+        System.out.println("==============END==============");
+
+        System.out.println("==============double linked list  queue test==============");
+
+        DLLQ();
+
+        System.out.println("==============END==============");
+
 
     }
     //method for the tests
@@ -274,39 +299,7 @@ public class main {
 
 
 
-    //single linked list stack
-    static void SLLS(){
 
-        stack myStack = new stack();
-
-        myStack.push(1);
-
-        myStack.push(2);
-
-        myStack.push(3);
-
-        myStack.pop();
-        myStack.reverseStack();
-
-        myStack.peek();
-
-        myStack.reverseStack();
-
-        myStack.push(1);
-        myStack.reverseStack();
-        myStack.push(2);
-        myStack.reverseStack();
-
-        myStack.push(3);
-
-        myStack.pop();
-        myStack.reverseStack();
-
-
-        myStack.peek();
-
-
-    }
 
 
 
@@ -441,6 +434,41 @@ public class main {
     }
 
 
+    //single linked list stack
+    static void SLLS(){
+
+        stack myStack = new stack();
+
+        myStack.push(1);
+
+        myStack.push(2);
+
+        myStack.push(3);
+
+        myStack.pop();
+        myStack.reverseStack();
+
+        myStack.peek();
+
+        myStack.reverseStack();
+
+        myStack.push(1);
+        myStack.reverseStack();
+        myStack.push(2);
+        myStack.reverseStack();
+
+        myStack.push(3);
+
+        myStack.pop();
+        myStack.reverseStack();
+
+
+        myStack.peek();
+
+
+    }
+
+
 
 
 
@@ -489,10 +517,90 @@ public class main {
 
     }
 
+    static void ARYS(){
+        stack_array stk = new stack_array(5);
+        stk.push(1);
+        stk.push(2);
+        stk.push(8);
+        stk.push(9);
+
+        //shift the data
+        stk.insertFirst(2);
+        stk.deleteFirst();
+        stk.insertFirst(5);
+
+        //pop
+
+        stk.pop();
+        stk.pop();
+        stk.pop();
+        stk.pop();
+        stk.pop();
+
+        //repush
+        for (int i = 1 ; i<=5 ; i++){
+            stk.push(i);
+        }
+
+        //repop
+        for (int i = 1 ; i<=5 ; i++){
+            stk.pop();
+        }
+
+        stk.deleteFirst();
+        stk.deleteLast();
+
+        stk.insertLast(2);
+
+        stk.displayFirst();
+        stk.displayLast();
+
+        stk.peak();
+
+    }
+
+
+    static void SLLQ(){
+        SingleLL.Node.Queue q = new SingleLL.Node.Queue();
 
 
 
+        q.Search(4);
+
+        q.Enqueue(1);
+        q.Enqueue(2);
+        q.Enqueue(3);
+        q.Enqueue(4);
+        q.Enqueue(5);
+        q.displayList();
+        q.getTop();
+        q.ReverseQueue();
+        q.displayList();
+        q.Search(0);
+        q.getTop();
+
+    }
+
+    static void DLLQ(){
+
+        DoubleLL.Node.Queue q = new DoubleLL.Node.Queue();
 
 
+
+        q.Search(4);
+
+        q.Enqueue(1);
+        q.Enqueue(2);
+        q.Enqueue(3);
+        q.Enqueue(4);
+        q.Enqueue(5);
+        q.displayList();
+        q.getTop();
+        q.ReverseQueue();
+        q.displayList();
+        q.Search(0);
+        q.getTop();
+
+    }
 
 }

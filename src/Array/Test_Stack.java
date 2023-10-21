@@ -7,16 +7,33 @@ public class Test_Stack {
         stk.push(2);
         stk.push(8);
         stk.push(9);
-        stk.push(4);
-        stk.push(22);
-        stk.push(25);
-        stk.push(1);
-        stk.push(2);
-        stk.push(8);
-        stk.push(9);
-        stk.push(4);
-        stk.push(22);
-        stk.push(25);
-//        stk.displayStack();
+
+        //shift the data
+        stk.insertFirst(2);
+        stk.deleteFirst();
+        stk.insertFirst(5);
+
+        //pop
+
+        stk.pop();
+        stk.pop();
+        stk.pop();
+        stk.pop();
+        stk.pop();
+
+        //repush
+        for (int i = 1 ; i<=5 ; i++){
+            stk.push(i);
+        }
+
+        //repop
+        for (int i = 1 ; i<=5 ; i++){
+            stk.pop();
+        }
+
+
+
+
+
     }
 }

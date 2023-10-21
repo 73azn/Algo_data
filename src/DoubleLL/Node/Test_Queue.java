@@ -8,6 +8,8 @@ public class Test_Queue {
         queue.InserBeforeLast(9);
         queue.InserBeforeLast(80);
         queue.InsertBeforeNode(5,90);
+
+        queue.displayList();
 //
         queue.InsertBeforeNode(80,66);
         queue.InsertBeforeNode(80,99);
@@ -15,6 +17,7 @@ public class Test_Queue {
         queue.InsertBeforeNode(80,70);
         queue.DeleteAfterFirst();
         queue.InsertBeforeNode(99,70);
+        queue.displayList();
 //        queue.InsertBeforeNode(90,66);
 //        queue.DeleteAllAfterFirst();
         queue.Enqueue(8);
