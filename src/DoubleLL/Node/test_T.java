@@ -107,6 +107,21 @@ public class test_T {
         // Test 13: Check if a specific value doesn't exist
         exists = myList.validNum(40);
         System.out.println("Value 40 exists: " + exists); // Expected output: Value 40 exists: false
+
+
+
+        System.out.println("--------------------Recursive------------------------");
+        myList.displayList();
+        //Sum
+        System.out.println(myList.Sum());
+        //Max
+        System.out.println(myList.max());
+        //Search
+        System.out.println(myList.Searchrec(2));
+        //Search number divisible by 5 and 6
+        myList.insertFirst(60);
+        myList.insertLast(30);
+        System.out.println(myList.Search5_6());
     }
 
 

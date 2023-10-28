@@ -304,7 +304,6 @@ public class T {
 
     public void displayPrvSuss(int value){
         Node cur = head;
-
         if (isEmpty()){
             System.out.println("the set are empty");
             return;
@@ -314,14 +313,10 @@ public class T {
             return;
         }
         if (value==head.data){
-
             System.out.println("you there is no prv");
-
             System.out.println("the Suss are"+head.next.data);
             return;
-
         }
-
         while (cur.next!=null&&cur.next.data!=value){
             cur=cur.next;
         }
@@ -435,100 +430,66 @@ public class T {
         head = prev;
     }
 
+//Recursive
 
+    //Sum recursive method
+    public int Sum() {
+        int sum = 0;
+        Node curr = head;
+        return sum(curr, sum);
+    }
+    private int sum(Node curr, int sum) {
+        if(curr == null) {
+            return sum;
+        } else {
+            sum += curr.data;
+        }
+        return sum(curr.next, sum);
+    }
 
-//    public void Enqueue2(int data) {
-//        Node newNode = new Node(data);
-//        if (isEmpty()) {
-//            head = tail = newNode;
-//            return;
-//        }
-//        newNode.next = head;
-//        head = newNode;
-//    }
+    // max recursive method
+    public int max() {
+        Node curr = head.next;
+        Node max = head;
+        return Max(curr, max);
+    }
+    private int Max(Node curr, Node max) {
+        if(curr == null) {
+            return max.data;
+        } else if(curr.data > max.data) {
+            max = curr;
+        }
+        return Max(curr.next, max);
+    }
 
-//    public void ReverseQueue() {
-////         Node curr = head;
-////         while(curr != null) {
-////             Enqueue2(Dequeue2());
-////             curr = curr.next;
-////         }
-//        stack stk = new stack();
-//        Queue queue = new Queue();
-//        if (isEmpty()) {
-//            System.out.println("Empty list");
-//            return;
-//        } else {
-//            while (!isEmpty()) {
-//                stk.push(displayTail());
-//                deleteLast();
-//            }
-//
-//            while (!stk.isEmpty()) {
-//                queue.Enqueue(stk.peek());
-//                stk.pop();
-//            }
-//        }
-//    }
-//        public void Display() {
-//            if(isEmpty()) {
-//                System.out.println("Empty list");
-//                return;
-//            } else {
-//                while(!isEmpty()) {
-//                    System.out.print(tail.data + " ");
-//                    deleteLast();
-//                }
-//            }
-//        }
+    //SearchRec recursive method
+    public String Searchrec(int element) {
+        Node curr = head;
+        String exsist = "Not found";
+        return searchrec(element, curr, exsist);
+    }
+    private String searchrec(int element, Node curr, String n) {
+        if(curr == null) {
+            return n;
+        } else if(curr.data == element){
+            n = "Found";
+        }
+        return searchrec(element, curr.next, n);
+    }
 
-
-//        if(isEmpty()) {
-//            System.out.println("Empty list");
-//            return;
-//        }  else {
-//            Node curr = head;
-//            while(curr != null) {
-//                System.out.print(tail.data + " "); // 5 4 3
-//                deleteLast();
-//                curr = curr.next;
-//            }
-//        }
-
-//    public void Enqueue2(int data) {
-//         Node newNode = new Node(data);
-//         if(isEmpty()) {
-//             head = tail = newNode;
-//         } else {
-//             newNode.next = null;
-//             tail.next = newNode;
-//             tail = newNode;
-//         }
-//    }
-//    public int Dequeue2() {
-//         int prvData;
-//         if(isEmpty()) {
-//             System.out.println("Empty list");
-//             return 0;
-//         } else if(head == tail) {
-//             prvData = head.data;
-//            head = tail = null;
-//         } else {
-//             prvData = head.data;
-//             head = head.next;
-//         }
-//         return prvData;
-//    }
-//
-//
-//
-//
-//    public int displayTail(){
-//        if (isEmpty()){
-//            System.out.println("\nthe set are empty");
-//            return 0;
-//        }
-//        return tail.data;
-//    }
+    //Search5/6 for finding the numbers which are divisible by 5 and 6
+    public String Search5_6() {
+        Node curr = head;
+        String isDivisible = "";
+        return search(curr, isDivisible);
+    }
+    public String search(Node curr, String n) {
+        if(curr == null) {
+            return n;
+        } else if(curr.data % 5 == 0 && curr.data % 6 == 0) {
+            n += curr.data + " ";
+        }
+        return search(curr.next, n);
+    }
 
 }

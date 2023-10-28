@@ -450,6 +450,73 @@ public void ReverseQueue() {
         return false;
     }
 
+
+
+
+
+
+    //Recursive
+
+    //Sum recursive method
+    public int Sum() {
+        int sum = 0;
+        Node curr = head;
+        return sum(curr, sum);
+    }
+    private int sum(Node curr, int sum) {
+        if(curr == null) {
+            return sum;
+        } else {
+            sum += curr.data;
+        }
+        return sum(curr.next, sum);
+    }
+
+    // max recursive method
+    public int max() {
+        Node curr = head.next;
+        Node max = head;
+        return Max(curr, max);
+    }
+    private int Max(Node curr, Node max) {
+        if(curr == null) {
+            return max.data;
+        } else if(curr.data > max.data) {
+            max = curr;
+        }
+        return Max(curr.next, max);
+    }
+
+    //SearchRec recursive method
+    public String Searchrec(int element) {
+        Node curr = head;
+        String exsist = "Not found";
+        return searchrec(element, curr, exsist);
+    }
+    private String searchrec(int element, Node curr, String n) {
+        if(curr == null) {
+            return n;
+        } else if(curr.data == element){
+            n = "Found";
+        }
+           return searchrec(element, curr.next, n);
+    }
+
+    //Search5/6 for finding the numbers which are divisible by 5 and 6
+    public String Search5_6() {
+        Node curr = head;
+        String isDivisible = "";
+        return search(curr, isDivisible);
+    }
+    public String search(Node curr, String n) {
+        if(curr == null) {
+            return n;
+        } else if(curr.data % 5 == 0 && curr.data % 6 == 0) {
+            n += curr.data + " ";
+        }
+        return search(curr.next, n);
+    }
+
 }
 
 

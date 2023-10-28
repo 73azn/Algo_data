@@ -61,27 +61,14 @@ public class stack {
         System.out.println("======== start rev =========");
         P = 1;
         T temp = new T();
-
-
         while (size !=0){
-
             temp.insertFirst(pop());
-
-           // temp.deleteFirst();
-
             size--;
         }
         stack = temp;
-
-
         P = 0;
-
-
         System.out.println("the reversed");
         stack.displayList();
-
-
-
     }
 
 
