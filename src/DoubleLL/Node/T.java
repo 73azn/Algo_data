@@ -517,6 +517,23 @@ public void ReverseQueue() {
         return search(curr.next, n);
     }
 
+    //convertLinkedListToArray
+    public int[] convertLinkedListToArray() {
+        int count = 0;
+        Node curr = head;
+        while(curr != null) {
+            count++;
+            curr = curr.next;
+        }
+        curr = head;
+        int[] arr = new int[count];
+        for(int i=0 ; i<arr.length ; i++) {
+            arr[i] = curr.data;
+            curr = curr.next;
+        }
+        return arr;
+    }
+
 }
 
 

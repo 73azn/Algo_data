@@ -1,5 +1,7 @@
 package SingleLL.Node;
 
+import Array.Array;
+
 public class test_T {
     public static void main(String[] args){
 
@@ -106,18 +108,28 @@ public class test_T {
         System.out.println("Value 40 exists: " + exists); // Expected output: Value 40 exists: false
 
 
-
+        //Recursive
         System.out.println("--------------------Recursive------------------------");
         myList.displayList();
         //Sum
         System.out.println(myList.Sum());
+
         //Max
         System.out.println(myList.max());
+
         //Search
         System.out.println(myList.Searchrec(2));
+
         //Search number divisible by 5 and 6
         myList.insertFirst(60);
         myList.insertLast(30);
         System.out.println(myList.Search5_6());
+
+        //ConvertArrayToLinkedList
+        Integer[] arr = new Integer[]{1,2,3};
+        Array<Integer> array = new Array<Integer>(arr);
+        T list = array.ConvertArrayToLinkedList();
+        list.displayList();
+
     }
 }
