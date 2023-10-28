@@ -2,7 +2,6 @@ package Array;
 
 public class Array<T>{
     private T[] arr;
-    int size = 0;
     public Array(T[] arr){
         this.arr = arr;
     }
