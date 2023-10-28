@@ -126,9 +126,9 @@ public class test_T {
         System.out.println(myList.Search5_6());
 
         //ConvertArrayToLinkedList
-        Integer[] arr = new Integer[]{1,2,3};
+        int[] arr = new int[]{1,2,3};
         Array<Integer> array = new Array<Integer>(arr);
-        T list = array.ConvertArrayToLinkedList();
+        T list = array.ConvertArrayToSingleLinkedList();
         list.displayList();
 
     }

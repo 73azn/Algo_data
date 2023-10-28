@@ -1,14 +1,21 @@
 package Array;
-
 public class Array<T>{
-    private T[] arr;
-    public Array(T[] arr){
+    private int[] arr;
+    public Array(int[] arr){
         this.arr = arr;
     }
-    public SingleLL.Node.T ConvertArrayToLinkedList() {
+    public SingleLL.Node.T ConvertArrayToSingleLinkedList() {
         SingleLL.Node.T list = new SingleLL.Node.T();
-        for(T i : arr) {
-            list.insertLast((int)i);
+        for(int i : arr) {
+            list.insertLast(i);
+        }
+        return list;
+    }
+
+    public DoubleLL.Node.T ConvertArrayToDoubleLinkedList() {
+        DoubleLL.Node.T list = new DoubleLL.Node.T();
+        for(int i : arr) {
+            list.insertLast(i);
         }
         return list;
     }

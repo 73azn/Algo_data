@@ -133,6 +133,13 @@ public class test_T {
         for(int n:newArr){
             System.out.print(n + " ");
         }
+        System.out.println();
+
+        //ConvertArrayToLinkedList
+        int[] arr = new int[]{1,2,3};
+        Array<Integer> array = new Array<Integer>(arr);
+        T list = array.ConvertArrayToDoubleLinkedList();
+        list.displayList();
     }
 
 
