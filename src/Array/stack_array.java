@@ -147,6 +147,7 @@ public class stack_array {
         System.out.println(peak);
 
         return peak;
+
     }
 
 

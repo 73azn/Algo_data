@@ -127,9 +127,10 @@ public class test_T {
 
         //ConvertArrayToLinkedList
         int[] arr = new int[]{1,2,3};
-        Array<Integer> array = new Array<Integer>(arr);
-        T list = array.ConvertArrayToSingleLinkedList();
-        list.displayList();
+        Array array = new Array();
+
+        myList = (T) array.ConvertArrayToLinkedList(arr, "D");
+        myList.displayList();
 
     }
 }
