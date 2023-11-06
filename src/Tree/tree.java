@@ -42,6 +42,41 @@ public class tree {
 
     }
 
+    //deleting
+
+    void deleteNode(int val){
+        if (!search(val)){
+            System.out.println("not valid number");
+            return;
+        }
+        root = deleteNode(root,val);
+    }
+    private node deleteNode(node node,int val){
+        if (node == null) return node;
+
+
+        if (val < node.data) node.left = deleteNode(node.left, val);
+        else if (val > node.data) node.right = deleteNode(node.right, val);
+        else {
+            // Node with only one child or no child
+            if (node.left == null)
+                return node.right;
+            else if (node.right == null)
+                return node.left;
+
+
+            node.data = findMin(node.right);
+
+
+            node.right = deleteNode(node.right, node.data);
+        }
+
+        return node;
+
+    }
+
+
+
     //printing
 
 
@@ -185,6 +220,27 @@ public class tree {
         Preorder_RightLeft(node.left);
     }
     }
+    void Post_order_LeftRight(){
+        Post_order_LeftRight(root);
+    }
+
+    private void Post_order_LeftRight(node node){
+        if (node!=null){
+            Post_order_LeftRight(node.left);
+            Post_order_LeftRight(node.right);
+            System.out.println(node.data);
+        }
+    }
+    void Post_order_RightLeft(){
+        Post_order_RightLeft(root);
+    }
+    private void Post_order_RightLeft(node node){
+        if (node!=null){
+            Post_order_RightLeft(node.left);
+            Post_order_RightLeft(node.right);
+            System.out.println(node.data);
+        }
+    }
     void Level_order_LeftRight(){
 
         Queue breath = Level_order_LeftRight(root,new Queue());
@@ -212,27 +268,6 @@ public class tree {
 
         }
         return breath;
-    }
-
-    void Post_order_LeftRight(){
-        Post_order_LeftRight(root);
-    }
-    private void Post_order_LeftRight(node node){
-        if (node!=null){
-            Post_order_LeftRight(node.left);
-            Post_order_LeftRight(node.right);
-            System.out.println(node.data);
-        }
-    }
-    void Post_order_RightLeft(){
-        Post_order_RightLeft(root);
-    }
-    private void Post_order_RightLeft(node node){
-        if (node!=null){
-            Post_order_RightLeft(node.left);
-            Post_order_RightLeft(node.right);
-            System.out.println(node.data);
-        }
     }
     void findMin(){
         System.out.println(findMin(root));
@@ -288,6 +323,10 @@ public class tree {
         }
 
     }
+
+
+
+
 
 
 
