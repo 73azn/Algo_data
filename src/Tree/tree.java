@@ -1,5 +1,5 @@
 package Tree;
-
+import DoubleLL.Node.Queue;
 public class tree {
 
     node root;
@@ -143,6 +143,97 @@ public class tree {
     }
 
     //traversing
+
+    void In_order_LeftRight(){
+        In_order_LeftRight(root);
+    }
+    private void In_order_LeftRight(node node){
+        if (node != null){
+            System.out.println(node.data);
+            In_order_LeftRight(node.left);
+            In_order_LeftRight(node.right);
+    }
+    }
+    void In_order_RightLeft(){
+        In_order_RightLeft(root);
+    }
+    private void In_order_RightLeft(node node){
+        if (node != null){
+        System.out.println(node.data);
+        In_order_RightLeft(node.right);
+        In_order_RightLeft(node.left);
+    }
+    }
+    void Preorder_LeftRight(){
+        Preorder_LeftRight(root);
+    }
+    private void Preorder_LeftRight(node node){
+        if (node != null){
+        Preorder_LeftRight(node.left);
+        System.out.println(node.data);
+        Preorder_LeftRight(node.right);
+    }
+    }
+    void Preorder_RightLeft(){
+        Preorder_RightLeft(root);
+    }
+    private void Preorder_RightLeft(node node){
+        if (node != null){
+            Preorder_RightLeft(node.right);
+
+        System.out.println(node.data);
+        Preorder_RightLeft(node.left);
+    }
+    }
+    void Level_order_LeftRight(){
+
+        Queue breath = Level_order_LeftRight(root,new Queue());
+        breath.displayList();
+    }
+    private Queue Level_order_LeftRight(node node , Queue breath){
+        if (node != null){
+            breath.Enqueue_tree(node.data);
+            Level_order_LeftRight(node.left,breath);
+            Level_order_LeftRight(node.right,breath);
+
+        }
+        return breath;
+    }
+    void Level_order_RightLeft(){
+
+        Queue breath = Level_order_RightLeft(root,new Queue());
+        breath.displayList();
+    }
+    private Queue Level_order_RightLeft(node node , Queue breath){
+        if (node != null){
+            breath.Enqueue_tree(node.data);
+            Level_order_RightLeft(node.left,breath);
+            Level_order_RightLeft(node.right,breath);
+
+        }
+        return breath;
+    }
+
+    void Post_order_LeftRight(){
+        Post_order_LeftRight(root);
+    }
+    private void Post_order_LeftRight(node node){
+        if (node!=null){
+            Post_order_LeftRight(node.left);
+            Post_order_LeftRight(node.right);
+            System.out.println(node.data);
+        }
+    }
+    void Post_order_RightLeft(){
+        Post_order_RightLeft(root);
+    }
+    private void Post_order_RightLeft(node node){
+        if (node!=null){
+            Post_order_RightLeft(node.left);
+            Post_order_RightLeft(node.right);
+            System.out.println(node.data);
+        }
+    }
     void findMin(){
         System.out.println(findMin(root));
     }
@@ -186,18 +277,14 @@ public class tree {
         if (node == null){
             return false;
         }
-        if (node.data == val){
+        if (node.data == val) {
             return true;
         }
-        else if (node.data<=val){
-            return search(node.right,val);
+        else if (node.data > val) {
+            return search(node.left, val);
         }
-        else if (node.data>val){
-            return search(node.left,val);
-        }
-
         else {
-            return false;
+            return search(node.right, val);
         }
 
     }

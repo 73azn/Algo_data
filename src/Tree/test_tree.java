@@ -7,7 +7,9 @@ public class test_tree {
         tree myTree = new tree();
 
         myTree.insertNode(5);
+        myTree.insertNode(3);
         myTree.insertNode(4);
+        myTree.insertNode(1);
         myTree.insertNode(6);
         myTree.insertNode(8);
 
@@ -26,6 +28,7 @@ public class test_tree {
 
         myTree.displayDegreeNode(8);
         System.out.println(myTree.search(8));
+        myTree.Level_order_LeftRight();
 
     }
 
