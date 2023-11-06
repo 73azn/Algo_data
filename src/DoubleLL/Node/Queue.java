@@ -8,6 +8,9 @@ public class Queue {
         Queue.displayList();
         Queue.displayCount();
     }
+    public void Enqueue_tree(int element) {
+        Queue.insertLast(element);
+    }
     public void InsertAfterFirst(int element) {
         Queue.insertAfterFirst(element);
     }
