@@ -118,62 +118,104 @@ public class tree {
     public void DisplayDegree0(){
         System.out.println();
         System.out.println("Degree "+0);
-        DisplayDegree0(root,0);
+//        DisplayDegree0(root,0);
+        DisplayDegree0(root);
     }
-    private void DisplayDegree0(node node,int deep){
-        if (node == null){
+//    private void DisplayDegree0(node node,int deep){
+//        if (node == null){
+//
+//            return;
+//        }
+//
+//        if (deep == 0){
+//            System.out.println("Degree "+deep);
+//            System.out.println(node.data);
+//            return;
+//        }
+//        DisplayDegree0(node.left,deep+1);
+//        DisplayDegree0(node.right,deep+1);
+//
+//    }
+        private void DisplayDegree0(node node){
+            if(node == null) {
+                return;
+            }
+            if(node.left == null && node.right == null) {
+                System.out.print(node.data + " ");
+                return;
+            }
+            DisplayDegree0(node.left);
+            DisplayDegree0(node.right);
 
-            return;
         }
 
-        if (deep == 0){
-            System.out.println("Degree "+deep);
-            System.out.println(node.data);
+        public void DisplayDegree1(){
+            System.out.println();
+            System.out.println("Degree "+1);
+    //        DisplayDegree1(root,0);
+            DisplayDegree1(root);
+        }
+//    private void DisplayDegree1(node node,int deep){
+//        if (node == null){
+//
+//            return;
+//        }
+//
+//        if (deep == 1){
+//
+//            System.out.print(node.data+" ");
+//            return;
+//        }
+//        DisplayDegree1(node.left,deep+1);
+//        DisplayDegree1(node.right,deep+1);
+//
+//    }
+    private void DisplayDegree1(node node){
+        if(node == null) {
             return;
         }
-        DisplayDegree0(node.left,deep+1);
-        DisplayDegree0(node.right,deep+1);
-
-    }
-
-    public void DisplayDegree1(){
-        System.out.println();
-        System.out.println("Degree "+1);
-        DisplayDegree1(root,0);
-    }
-    private void DisplayDegree1(node node,int deep){
-        if (node == null){
-
+        if(node.left == null && node.right != null) {
+            System.out.print(node.data + " ");
             return;
         }
-
-        if (deep == 1){
-
-            System.out.print(node.data+" ");
+        if(node.left != null && node.right == null) {
+            System.out.print(node.data + " ");
             return;
         }
-        DisplayDegree1(node.left,deep+1);
-        DisplayDegree1(node.right,deep+1);
+        DisplayDegree1(node.left);
+        DisplayDegree1(node.right);
 
     }
     public void DisplayDegree2(){
         System.out.println();
         System.out.println("Degree "+2);
-        DisplayDegree1(root,0);
+//        DisplayDegree2(root,0);
+        DisplayDegree2(root);
     }
-    private void DisplayDegree2(node node,int deep){
-        if (node == null){
-
+//    private void DisplayDegree2(node node,int deep){
+//        if (node == null){
+//
+//            return;
+//        }
+//
+//        if (deep == 2){
+//
+//            System.out.print(node.data+" ");
+//            return;
+//        }
+//        DisplayDegree2(node.left,deep+1);
+//        DisplayDegree2(node.right,deep+1);
+//
+//    }
+    private void DisplayDegree2(node node){
+        if(node == null) {
             return;
         }
-
-        if (deep == 2){
-
-            System.out.print(node.data+" ");
-            return;
+        if(node.left != null && node.right != null) {
+            System.out.print(node.data + " ");
         }
-        DisplayDegree2(node.left,deep+1);
-        DisplayDegree2(node.right,deep+1);
+        DisplayDegree2(node.left);
+        DisplayDegree2(node.right);
 
     }
 
@@ -181,64 +223,69 @@ public class tree {
 
     void In_order_LeftRight(){
         In_order_LeftRight(root);
+        System.out.println();
     }
     private void In_order_LeftRight(node node){
         if (node != null){
-            System.out.println(node.data);
             In_order_LeftRight(node.left);
+            System.out.print(node.data + " ");
             In_order_LeftRight(node.right);
     }
     }
     void In_order_RightLeft(){
         In_order_RightLeft(root);
+        System.out.println();
     }
     private void In_order_RightLeft(node node){
         if (node != null){
-        System.out.println(node.data);
-        In_order_RightLeft(node.right);
-        In_order_RightLeft(node.left);
+            In_order_RightLeft(node.right);
+            System.out.print(node.data + " ");
+            In_order_RightLeft(node.left);
     }
     }
     void Preorder_LeftRight(){
         Preorder_LeftRight(root);
+        System.out.println();
     }
     private void Preorder_LeftRight(node node){
         if (node != null){
-        Preorder_LeftRight(node.left);
-        System.out.println(node.data);
-        Preorder_LeftRight(node.right);
+            System.out.print(node.data + " ");
+            Preorder_LeftRight(node.left);
+            Preorder_LeftRight(node.right);
     }
     }
     void Preorder_RightLeft(){
         Preorder_RightLeft(root);
+        System.out.println();
     }
     private void Preorder_RightLeft(node node){
         if (node != null){
+            System.out.print(node.data + " ");
             Preorder_RightLeft(node.right);
-
-        System.out.println(node.data);
-        Preorder_RightLeft(node.left);
+            Preorder_RightLeft(node.left);
     }
     }
     void Post_order_LeftRight(){
         Post_order_LeftRight(root);
+        System.out.println();
     }
 
     private void Post_order_LeftRight(node node){
         if (node!=null){
             Post_order_LeftRight(node.left);
             Post_order_LeftRight(node.right);
-            System.out.println(node.data);
+            System.out.print(node.data + " ");
         }
     }
     void Post_order_RightLeft(){
         Post_order_RightLeft(root);
+        System.out.println();
     }
     private void Post_order_RightLeft(node node){
         if (node!=null){
-            Post_order_RightLeft(node.left);
             Post_order_RightLeft(node.right);
-            System.out.println(node.data);
+            Post_order_RightLeft(node.left);
+            System.out.print(node.data + " ");
         }
     }
     void Level_order_LeftRight(){
@@ -263,12 +310,35 @@ public class tree {
     private Queue Level_order_RightLeft(node node , Queue breath){
         if (node != null){
             breath.Enqueue_tree(node.data);
-            Level_order_RightLeft(node.left,breath);
             Level_order_RightLeft(node.right,breath);
+            Level_order_RightLeft(node.left,breath);
 
         }
         return breath;
     }
+
+//    void LevelOrder(){
+//
+//        Queue breath = new Queue();
+//        breath.Enqueue(root.data);
+//        levelOrder(root, breath);
+//        breath.displayList();
+//    }
+//    private void levelOrder(node p, Queue breath) {
+//        if(p==null)
+//            return;
+//        if(p.left == null && p.right == null) {
+//            return;
+//        }
+//        if(p.left != null) {
+//            breath.Enqueue(p.left.data);
+//        }
+//        if(p.right != null) {
+//            breath.Enqueue(p.right.data);
+//        }
+//        levelOrder(p.left, breath);
+//        levelOrder(p.right, breath);
+//    }
     void findMin(){
         System.out.println(findMin(root));
     }

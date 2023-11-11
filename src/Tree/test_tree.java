@@ -15,10 +15,27 @@ public class test_tree {
         myTree.insertNode(6);
         myTree.insertNode(8);
 
-
+        //Degree
         myTree.DisplayDegree0();
         myTree.DisplayDegree1();
         myTree.DisplayDegree2();
+        System.out.println();
+
+        //Traversing
+        System.out.println("\nTraversing");
+        myTree.In_order_LeftRight();
+        myTree.In_order_RightLeft();
+        myTree.Preorder_LeftRight();
+        myTree.Preorder_RightLeft();
+        myTree.Post_order_LeftRight();
+        myTree.Post_order_RightLeft();
+        System.out.println("size " + myTree.size());
+        System.out.println("right size " +myTree.sizeRight());
+        System.out.println("left size " +myTree.sizeLeft());
+        System.out.println("Level order right to left");
+        myTree.Level_order_RightLeft();
+
+
         System.out.println();
         System.out.println(myTree.sizeRight());
 

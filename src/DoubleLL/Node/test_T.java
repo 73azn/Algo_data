@@ -138,8 +138,7 @@ public class test_T {
         //ConvertArrayToLinkedList
         int[] arr = new int[]{1,2,3};
         Array array = new Array();
-       myList = (T) array.ConvertArrayToLinkedList(arr,"D");
-
+       myList = (T) array.ConvertArrayToLinkedList(arr,"S");
        myList.displayList();
     }
 
