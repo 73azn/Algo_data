@@ -14,42 +14,23 @@ public class test_tree {
         myTree.insertNode(1);
         myTree.insertNode(6);
         myTree.insertNode(8);
-
-        //Degree
-        myTree.DisplayDegree0();
-        myTree.DisplayDegree1();
-        myTree.DisplayDegree2();
-        System.out.println();
-
-        //Traversing
-        System.out.println("\nTraversing");
-        myTree.In_order_LeftRight();
-        myTree.In_order_RightLeft();
-        myTree.Preorder_LeftRight();
-        myTree.Preorder_RightLeft();
-        myTree.Post_order_LeftRight();
-        myTree.Post_order_RightLeft();
-        System.out.println("size " + myTree.size());
-        System.out.println("right size " +myTree.sizeRight());
-        System.out.println("left size " +myTree.sizeLeft());
-        System.out.println("Level order right to left");
-        myTree.Level_order_RightLeft();
-
-
-        System.out.println();
-        System.out.println(myTree.sizeRight());
-
-        myTree.findMin();
-        myTree.findMax();
-        System.out.println(myTree.numberofEdges());
-
+        System.out.println("tree before deletes");
+        myTree.displaybst();
+        System.out.println("==========================");
+        myTree.deleteNode(5);
+        myTree.deleteNode(6);
+        myTree.deleteNode(4);
+        myTree.deleteNode(2);
         myTree.displaybst();
 
-        myTree.displayDegreeNode(8);
-        System.out.println(myTree.search(8));
-        myTree.Level_order_LeftRight();
-        myTree.deleteNode(2);
-        myTree.Level_order_LeftRight();
+
+        myTree.displayDegreeNode(3);
+
+        myTree.In_order_LeftRight();
+
+        myTree.mirror();
+
+
 
     }
 
