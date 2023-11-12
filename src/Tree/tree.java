@@ -135,75 +135,68 @@ public class tree {
     }
 
 
-    // this is for you ali i used this method and we can use root.data but i'm trying to understand it
+
     public void DisplayDegree0(){
         System.out.println();
         System.out.println("Degree "+0);
-        DisplayDegree0(root,0);
-        System.out.println("\n");
 
+        DisplayDegree0(root);
     }
-    private void DisplayDegree0(node node,int deep){
-        if (node == null){
-
+    private void DisplayDegree0(node node){
+        if(node == null) {
             return;
         }
-
-        if (deep == 0){
-
-            System.out.println(node.data);
+        if(node.left == null && node.right == null) {
+            System.out.print(node.data + " ");
             return;
         }
-        DisplayDegree0(node.left,deep+1);
-        DisplayDegree0(node.right,deep+1);
+        DisplayDegree0(node.left);
+        DisplayDegree0(node.right);
 
     }
 
     public void DisplayDegree1(){
         System.out.println();
         System.out.println("Degree "+1);
-        DisplayDegree1(root,0);
-        System.out.println("\n");
+
+        DisplayDegree1(root);
     }
-    private void DisplayDegree1(node node,int deep){
-        if (node == null){
 
+    private void DisplayDegree1(node node){
+        if(node == null) {
             return;
         }
-
-        if (deep == 1){
-
-            System.out.print(node.data+" ");
+        if(node.left == null && node.right != null) {
+            System.out.print(node.data + " ");
             return;
         }
-        DisplayDegree1(node.left,deep+1);
-        DisplayDegree1(node.right,deep+1);
+        if(node.left != null && node.right == null) {
+            System.out.print(node.data + " ");
+            return;
+        }
+        DisplayDegree1(node.left);
+        DisplayDegree1(node.right);
 
     }
     public void DisplayDegree2(){
         System.out.println();
         System.out.println("Degree "+2);
-        DisplayDegree2(root,0);
-        System.out.println("\n");
-    }
-    private void DisplayDegree2(node node,int deep){
-        if (node == null){
 
+        DisplayDegree2(root);
+    }
+
+    private void DisplayDegree2(node node){
+        if(node == null) {
             return;
         }
-
-
-
-        if (deep == 2){
-
-            System.out.print(node.data+" ");
-
+        if(node.left != null && node.right != null) {
+            System.out.print(node.data + " ");
         }
-        DisplayDegree2(node.left,deep+1);
-        DisplayDegree2(node.right,deep+1);
-
+        DisplayDegree2(node.left);
+        DisplayDegree2(node.right);
 
     }
+
 
     void DisplayNumbersOf_LeavesNode(){
         System.out.println("number of leaves are ");
