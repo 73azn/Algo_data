@@ -4,7 +4,16 @@ public class stack {
 
     T stack = new T();
      private int P = 0;
+    public void Tpush(int data){
+        stack.insertFirst(data);
+    }
+    public int Tpop(){
 
+        int top = stack.head.data;
+        stack.deleteFirst();
+        return top;
+
+    }
     public void push(int data){
         stack.insertFirst(data);
         stack.displayList();
@@ -78,10 +87,9 @@ public class stack {
         return stack.isEmpty();
     }
 
-    int size(){
+    public int size(){
 
         int size = stack.Count();
-        System.out.println("size: "+size);
         return size;
     }
 

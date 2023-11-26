@@ -121,17 +121,39 @@ public class tree {
             System.out.println("value are not valid");
         }
         System.out.println();
-        displayDegreeNode(root,val,0);
+        System.out.print("the node ");
+        displayDegreeNode(root,val);
+        System.out.println();
     }
-     void displayDegreeNode(node node,int val,int deep){
+     void displayDegreeNode(node node,int val){
         if (node == null){
             return;
         }
         if (node.data == val){
-            System.out.println("the degree of "+val+" are "+deep);
+         if(node.left != null && node.right != null) {
+
+             System.out.println(node.data + "\nhas 2 degree");
+         }
+         if(
+                 (node.left != null && node.right == null)
+                         ||
+                         (node.left == null && node.right != null)
+         )
+         {
+
+             System.out.println(node.data + "\nhas 1 degree");
+             return;
+         }
+
+         if(node.left == null && node.right == null) {
+             System.out.println(node.data + "\nhas 0 degree");
+             return;
+         }
         }
-        displayDegreeNode(node.right,val,deep+1);
-        displayDegreeNode(node.left,val,deep+1);
+
+
+        displayDegreeNode(node.right,val);
+        displayDegreeNode(node.left,val);
     }
 
 
@@ -166,11 +188,13 @@ public class tree {
         if(node == null) {
             return;
         }
-        if(node.left == null && node.right != null) {
-            System.out.print(node.data + " ");
-            return;
-        }
-        if(node.left != null && node.right == null) {
+
+        if(
+                (node.left != null && node.right == null)
+                                    ||
+                (node.left == null && node.right != null)
+        )
+        {
             System.out.print(node.data + " ");
             return;
         }
@@ -197,24 +221,49 @@ public class tree {
 
     }
 
-
+    //number of
     void DisplayNumbersOf_LeavesNode(){
-        System.out.println("number of leaves are ");
-        System.out.println(DisplayNumbersOf_LeavesNode(root));
+        System.out.println("the amount of leaves are : "+ degreeLookup(root,0));
+    }
+    void DisplayNumberOf_NeitherNode(){
+        System.out.println("the amount of Neither node are : "+ degreeLookup(root,1));
     }
     void DisplayNumbersOf_FullNode(){
-        System.out.println("the size of the tree are \n "+size());
+        System.out.println("the amount of full node are : " + degreeLookup(root,2));
     }
-    private int DisplayNumbersOf_LeavesNode(node node){
-        if (node == null){
-            return 0;
-        }
 
-        else if (node.left == null && node.right == null){
-            return 1;
-        }
 
-        return DisplayNumbersOf_LeavesNode(node.left)+ DisplayNumbersOf_LeavesNode(node.right);
+    void DisplayIsBST_fullTree(){
+        System.out.println(isBST_fullTree(root));
+    }
+    boolean isBST_fullTree(node node){
+
+      if (node!= null){
+
+        if(
+                (node.left != null && node.right == null)
+                        ||
+                        (node.left == null && node.right != null)
+        )
+        {
+
+
+            return false;
+        }
+          isBST_fullTree(node.right);
+          isBST_fullTree(node.left);
+
+      }
+
+
+        return true ;
+
+
+
+
+
+
+
     }
 
     //traversing
@@ -222,8 +271,26 @@ public class tree {
 
     void mirror(){
         System.out.println("mirror of In order");
-        In_order_RightLeft();
+        DoubleLL.Node.stack stack = new DoubleLL.Node.stack();
+        stack = mirror(root,stack);
+
+        for ( int i = stack.size();i>0; i--){
+
+            System.out.print(stack.Tpop()+" ");
+        }
+
     }
+
+
+    DoubleLL.Node.stack mirror(node node,DoubleLL.Node.stack stack){
+       if (node!= null){
+           stack.Tpush(node.data);
+           stack = mirror(node.left,stack);
+           stack = mirror(node.right,stack);
+       }
+        return stack;
+    }
+
     void In_order_LeftRight(){
         System.out.println("in order left to right");
         In_order_LeftRight(root);
@@ -360,31 +427,17 @@ public class tree {
     int sizeLeft(){
 
 
-        return sizeLeft(root.left);
+        return size(root.left);
     }
 
-    int sizeLeft(node node){
 
-        if (node == null){
-            return 0;
-        }
-
-        return sizeLeft(node.left)+1+sizeLeft(node.right);
-
-    }
     int sizeRight(){
 
-    return sizeRight(root.right);
+    return size(root.right);
 
     }
 
-    int sizeRight(node node){
-        if (node == null){
-            return 0;
-        }
 
-        return  sizeRight(root.left)+1+sizeRight(root.right);
-    }
 
     int numberofEdges(){
         return size()-1;
@@ -408,6 +461,48 @@ public class tree {
             return search(node.right, val);
         }
 
+
+    }
+
+    private int degreeLookup(node node , int degree){
+        if (node == null){
+            return 0;
+        }
+
+
+
+            if (degree == 0){
+            if(node.left == null && node.right == null) {
+
+                return 1;
+            }
+            }
+
+
+
+        if(degree == 1){
+
+            if(
+                    (node.left != null && node.right == null)
+                                       ||
+                    (node.left == null && node.right != null)
+            )
+            {
+
+
+                return 1;
+            }
+        }
+
+        if(degree == 2){
+            if(node.left != null && node.right != null) {
+
+                return 1;
+            }
+        }
+
+
+       return degreeLookup(node.left,degree)+degreeLookup(node.right,degree);
 
     }
 

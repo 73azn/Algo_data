@@ -15,9 +15,6 @@ public class Array {
 
     public Object ConvertArrayToLinkedList(int[] arr , String LinkedListType_D_or_S)  {
         LinkedListType_D_or_S = LinkedListType_D_or_S.toUpperCase();
-
-
-
         switch (LinkedListType_D_or_S){
 
             case "D":

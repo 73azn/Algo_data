@@ -7,6 +7,7 @@ public class stack {
 
     private int P = 0;
 
+
     public void push(int data){
         stack.insertFirst(data);
         stack.displayList();
