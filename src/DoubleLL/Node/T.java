@@ -6,6 +6,7 @@ public class T {
 
 
 
+
     //insert start
     public void insertFirst(int data){
 
@@ -20,10 +21,12 @@ public class T {
         newNode.prv = null;
         head = newNode;
 
+
     }
 
     public void insertLast(int data){
         Node newNode = new Node(data);
+
 
         if (isEmpty()){
             head=tail=newNode;
@@ -35,6 +38,51 @@ public class T {
         tail.next = newNode;
         tail = newNode;
 
+    }
+
+    public boolean binarySearch(int value){
+        Node mid = getMid();
+
+        if (mid.data>value){
+
+            for (;mid!=null&&mid.data!=value;mid=mid.prv);
+
+
+        }
+
+        else {
+
+            for (;mid!=null&&mid.data!=value;mid=mid.next);
+
+
+
+
+        }
+        if (mid == null){
+            return false;
+        }
+
+        if (mid.data == value){
+            return true;
+        }
+
+
+        return false;
+    }
+
+    public Node getMid(){
+        if (isEmpty()){
+            return null;
+        }
+        int size = size();
+        size-=1;
+        Node cur = head;
+        for (int i = 0 ;i<size/2;){
+            cur=cur.next;
+            i++;
+        }
+
+        return cur;
     }
 
     public void insertAfterNode(int data, int value){
@@ -54,12 +102,14 @@ public class T {
         }
         if (cur == tail){
             insertLast(data);
+
             return;}
 
         newNode.next = cur.next;
         newNode.prv = cur;
         cur.next.prv = newNode;
         cur.next= newNode;
+
     }
 
 
@@ -79,6 +129,7 @@ public class T {
         newNode.prv = head;
         head.next.prv = newNode;
         head.next = newNode;
+
     }
 
     public void inserBeforeLast(int element) {
@@ -532,6 +583,15 @@ public void ReverseQueue() {
             curr = curr.next;
         }
         return arr;
+    }
+
+    public int size(){
+        int size = 0;
+        Node cur = head;
+        for (;cur!=null;cur=cur.next){
+            size++;
+        }
+        return size;
     }
 
 }
