@@ -1,6 +1,5 @@
 package Array;
 
-import java.util.List;
 
 public class Array {
     private int[] arr;
@@ -11,7 +10,7 @@ public class Array {
 
     }
     //using binary search
-    public boolean isVaild(int number){
+    public boolean BinarySearch(int number){
 
     if (!isSorted()){
 
@@ -47,6 +46,200 @@ public class Array {
         }
     return false;
     }
+
+
+    public boolean linerSearch (int key){
+
+        for (int i : arr){
+            if (i == key){
+
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int[] getArr(){
+        return this.arr;
+    }
+
+    public void display(){
+        for (int i : arr){
+            System.out.print(i+" ");
+        }
+    }
+
+
+    public void bubbleSort(){
+        for (int i = 0 ; i< arr.length-1;i++){
+            for (int j = 0; j < arr.length - 1 - i ;j++){
+
+                if (arr[j]>arr[j+1]){
+                    swap(j+1,j);
+                }
+
+            }
+
+        }
+        System.out.println("sorted by bubble");
+    }
+
+
+    public void insertionSort(){
+        for (int i = 1 ; i<arr.length;i++){
+            int val = arr[i];
+            int j = i-1;
+            for (; j>=0&&arr[j]>val;j--){
+                arr[j+1] = arr[j];
+            }
+            arr[j+1] = val;
+
+
+        }
+
+        System.out.println("sorted by insertion");
+    }
+
+    int partition( int low, int high) {
+
+        int pivot = arr[high];
+
+        int i = (low - 1);
+
+        for (int j = low; j < high; j++) {
+
+            if (arr[j] < pivot) {
+                i++;
+
+
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+
+        swap(i+1,high);
+
+        return i + 1;
+    }
+
+    void quickSort(){
+        quickSort(0,arr.length-1);
+        System.out.println("sorted by Quick");
+    }
+
+    void quickSort( int low, int high) {
+        if (low < high) {
+            // pi is partitioning index, arr[pi] is now at right place
+            int pi = partition( low, high);
+
+            // Recursively sort elements before partition and after partition
+            quickSort( low, pi - 1);
+            quickSort(pi + 1, high);
+        }
+    }
+
+    public void selectionSort(){
+        for (int i = 0 ; i<arr.length-1;i++){
+            for (int j = i+1 ; j<arr.length ; j++){
+
+                if (arr[i]>arr[j]){
+
+                    swap(j,i);
+
+                }
+            }
+        }
+        System.out.println("sorted by Selection");
+    }
+
+    public void swap(int index1 ,int index2 ){
+
+        int temp = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = temp;
+
+    }
+
+    public void mergeSort(){
+        mergeSort(0,arr.length-1);
+        System.out.println("sorted by merge");
+    }
+
+    private void mergeSort(int left , int mid , int right){
+
+        int sL = mid-left+1;
+        int sR = right-mid;
+
+        int[] L = new int[sL];
+        int[] R = new int[sR];
+
+
+        System.arraycopy(arr,left,L,0,sL);
+        System.arraycopy(arr,mid+1,R,0,sR);
+/*
+* the previous copying method same as this one
+*         for (int i = 0 ; i<sL;i++){
+            L[i] = arr[i+left];
+        }
+        for (int i = 0 ; i<sR;i++){
+            R[i] = arr[mid+1+i];
+        }
+* but it's more efficient
+*
+* because it's from the System class and without looping which it's O(1)
+*
+* */
+
+        int i = 0, j = 0;
+
+        int k = left;
+        while (i < sL && j < sR) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            }
+            else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < sL) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+        while (j < sR) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+
+
+    private void mergeSort(int left , int right){
+
+        if (left<right){
+
+            int mid = (left+right)/2;
+
+            mergeSort(left,mid);
+            mergeSort(mid+1,right);
+
+            mergeSort(left,mid,right);
+        }
+
+
+    }
+
+
+
+
+
+
 
 
 
