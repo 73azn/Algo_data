@@ -594,6 +594,7 @@ public class tree {
         heap(arr);
         array_tree(arr);
 
+
     }
 
     private void array_tree(int[] arr){

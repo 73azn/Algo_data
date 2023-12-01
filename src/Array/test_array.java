@@ -9,6 +9,7 @@ public class test_array {
 
 
 
+
         Array amer = new Array(ame);
 
         amer.mergeSort();

@@ -51,6 +51,7 @@ public class test_tree {
         int[] arr = myTree.tree_array();
         myTree.heap();
         myTree.displaybst();
+
     }
 
 
