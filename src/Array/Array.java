@@ -67,6 +67,7 @@ public class Array {
         for (int i : arr){
             System.out.print(i+" ");
         }
+        System.out.println();
     }
 
 
@@ -233,7 +234,79 @@ public class Array {
         }
 
 
+
+
+
+
+
     }
+
+    //under here all of the heaps sorting
+
+    public void heap(){
+        int size = arr.length-1;
+        for (int i = size/2;i>=0;i--){
+            heap(size,i);
+        }
+        for (int i =size;i>0;i--){
+            swap(0,i);
+            heap(i,0);
+        }
+    }
+
+   private void heap(int size , int index){
+
+
+        int bigSelector = index;
+        int left = 2*index+1;
+        int right = 2*(index+1);
+
+        if (left<size&&arr[left]>arr[bigSelector]){
+            bigSelector = left;
+        }
+        if (right<size&&arr[right]>arr[bigSelector]){
+            bigSelector = right;
+        }
+
+        if (bigSelector != index){
+            swap(bigSelector,index);
+            heap(size,bigSelector);
+        }
+
+
+
+   }
+
+   public void heaprev(){
+       int size = arr.length-1;
+       for (int i = size/2;i>=0;i--){
+           heaprev(size,i);
+       }
+       for (int i =size;i>0;i--){
+           swap(0,i);
+           heaprev(i,0);
+       }
+   }
+    private void heaprev(int size , int index){
+
+
+        int smallSelector = index;
+        int left = 2*index+1;
+        int right = 2*(index+1);
+
+        if (left<size&&arr[left]<arr[smallSelector]){
+            smallSelector = left;
+        }
+        if (right<size&&arr[right]<arr[smallSelector]){
+            smallSelector = right;
+        }
+
+        if (smallSelector != index){
+            swap(smallSelector,index);
+            heaprev(size,smallSelector);
+        }
+    }
+
 
 
 
