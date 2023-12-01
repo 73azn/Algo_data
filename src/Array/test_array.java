@@ -11,15 +11,12 @@ public class test_array {
 
         Array amer = new Array(ame);
 
+        amer.mergeSort();
 
-
-
-
-        amer.heaprev();
         amer.display();
 
-        amer.heap();
-        amer.display();
+
+        System.out.println("\n"+ (amer.linerSearch(8)?"found":"not found"));
 
 
 

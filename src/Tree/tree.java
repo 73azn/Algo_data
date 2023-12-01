@@ -508,6 +508,103 @@ public class tree {
 
 
 
+    //under here sorting labs
+
+    public void swap(int[]arr,int index1 ,int index2 ){
+
+        int temp = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = temp;
+
+    }
+
+    public int[] tree_array(){
+
+        int[] arr = new int [size()];
+        return tree_array(arr,root,0);
+    }
+    private int[] tree_array(int[] arr , node node , int index){
+
+       if (node!=null){
+
+
+
+            arr[index] = node.data;
+            tree_array(arr,node.left,2*index+1);
+            tree_array(arr,node.right,2*(index+1));
+
+
+        }
+
+
+
+       return arr;
+
+
+    }
+
+    public void display(int[] arr){
+        for (int i:arr){
+            System.out.print(i+" ");
+        }
+        System.out.println();
+    }
+
+
+    private void heap(int[] arr){
+        int size = arr.length-1;
+        for (int i = size/2;i>=0;i--){
+            heap(arr,size,i);
+        }
+        for (int i =size;i>0;i--){
+            swap(arr,0,i);
+            heap(arr,i,0);
+        }
+    }
+
+    private void heap(int[] arr,int size , int index){
+
+
+        int bigSelector = index;
+        int left = 2*index+1;
+        int right = 2*(index+1);
+
+        if (left<size&&arr[left]>arr[bigSelector]){
+            bigSelector = left;
+        }
+        if (right<size&&arr[right]>arr[bigSelector]){
+            bigSelector = right;
+        }
+
+        if (bigSelector != index){
+            swap(arr,bigSelector,index);
+            heap(arr,size,bigSelector);
+        }
+
+
+
+    }
+
+
+
+
+    public void heap(){
+        System.out.println("the heap sort started");
+        int[] arr= tree_array();
+        heap(arr);
+        array_tree(arr);
+
+    }
+
+    private void array_tree(int[] arr){
+        root = null;
+
+        for (int i : arr){
+            insertNode(i);
+        }
+
+    }
+
 
 
 

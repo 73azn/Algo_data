@@ -244,18 +244,18 @@ public class Array {
 
     //under here all of the heaps sorting
 
-    public void heap(){
+    public void heapSort(){
         int size = arr.length-1;
         for (int i = size/2;i>=0;i--){
-            heap(size,i);
+            heapSort(size,i);
         }
         for (int i =size;i>0;i--){
             swap(0,i);
-            heap(i,0);
+            heapSort(i,0);
         }
     }
 
-   private void heap(int size , int index){
+   private void heapSort(int size , int index){
 
 
         int bigSelector = index;
@@ -271,7 +271,7 @@ public class Array {
 
         if (bigSelector != index){
             swap(bigSelector,index);
-            heap(size,bigSelector);
+            heapSort(size,bigSelector);
         }
 
 
