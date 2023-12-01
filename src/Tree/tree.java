@@ -363,30 +363,60 @@ public class tree {
     void Level_order_LeftRight(){
 
         Queue breath = Level_order_LeftRight(root,new Queue());
+
         breath.displayList();
     }
     private Queue Level_order_LeftRight(node node , Queue breath){
         if (node != null){
-            breath.Enqueue_tree(node.data);
-            Level_order_LeftRight(node.left,breath);
-            Level_order_LeftRight(node.right,breath);
+            if(node == root){
+                breath.Enqueue(node.data);
+            }
+            Level_order_LeftRight2(node.left, breath);
+            Level_order_LeftRight2(node.right, breath);
+            Level_order_LeftRight(node.left, breath);
+            Level_order_LeftRight(node.right, breath);
+//            breath.Enqueue_tree(node.data);
+//            Level_order_LeftRight(node.left,breath);
+//            Level_order_LeftRight(node.right,breath);
 
         }
         return breath;
+    }
+    private void Level_order_LeftRight2(node node , Queue breath){
+        if (node != null){
+            breath.Enqueue_tree(node.data);
+        }
+
     }
     void Level_order_RightLeft(){
 
         Queue breath = Level_order_RightLeft(root,new Queue());
         breath.displayList();
     }
-    private Queue Level_order_RightLeft(node node , Queue breath){
-        if (node != null){
-            breath.Enqueue_tree(node.data);
-            Level_order_RightLeft(node.left,breath);
-            Level_order_RightLeft(node.right,breath);
+    private Queue Level_order_RightLeft(node node, Queue breath) {
+        if (node != null) {
+            if (node == root) {
+                breath.Enqueue(node.data);
+            }
+            Level_order_RightLeft2(node.right, breath);
+            Level_order_RightLeft2(node.left, breath);
+            Level_order_RightLeft(node.right, breath);
+            Level_order_RightLeft(node.left, breath);
 
+//        if (node != null){
+//            breath.Enqueue_tree(node.data);
+//            Level_order_RightLeft(node.right,breath);
+//            Level_order_RightLeft(node.left,breath);
+//
+//        }
         }
         return breath;
+    }
+    private void Level_order_RightLeft2(node node, Queue breath){
+        if (node != null){
+            breath.Enqueue_tree(node.data);
+        }
+
     }
     void findMin(){
         System.out.println(findMin(root));
@@ -421,7 +451,7 @@ public class tree {
         }
 
 
-     return size(node.left) +1+ size(node.right);
+     return size(node.left) + 1 + size(node.right);
 
     }
     int sizeLeft(){

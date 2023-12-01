@@ -47,11 +47,6 @@ public class test_tree {
         myTree.DisplayNumbersOf_LeavesNode();
         myTree.In_order_LeftRight();
         myTree.mirror();
-        System.out.println();
-        int[] arr = myTree.tree_array();
-        myTree.heap();
-        myTree.displaybst();
-
     }
 
 
