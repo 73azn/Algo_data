@@ -631,30 +631,25 @@ public class T {
     }
 
     public void insertionSort() {
-        Node curr = head.next;
-        for( ; curr.next!=null ; curr=curr.next) {
-            int key = curr.data;
-            Node j = curr.prv;
-            while(j.data>key) {
+        Node temp = new Node();
+        temp.next =head;
+        head.prv =temp;
+
+        Node cur = head.next;
+        for (;cur!=null;cur = cur.next){
+            int val = cur.data;
+            Node j = cur.prv;
+            for (;j.prv!=null&&j.data>val;j=j.prv){
                 j.next.data = j.data;
-                j = j.prv;
             }
-            j.next.data = key;
-
+            j.next.data = val;
         }
-        if(curr.data < head.data) {
-            swap(curr, head);
-//            head.next = curr;
-//            curr.next = head.next.next;
-//            head.next.next.prv = curr;
-//            curr.prv = head;
-            insertAfterFirst(curr.data);
-            deleteLast();
-
-        }
+        temp.next = null;
+        head.prv = null;
+    }
 
 
-        /*for (int i = 1 ; i<arr.length;i++){
+       /*for (int i = 1 ; i<arr.length;i++){
             int val = arr[i];
             int j = i-1;
             for (; j>=0&&arr[j]>val;j--){
@@ -664,7 +659,12 @@ public class T {
 
 
         }*/
-    }
+
+
+
+
+
+
 
 
 

@@ -2,6 +2,8 @@ package DoubleLL.Node;
 
 import Array.*;
 
+import java.util.Random;
+
 public class test_T {
 
     public static void main(String[] args){
@@ -140,38 +142,18 @@ public class test_T {
 //        Array array = new Array();
 //       myList = (T) array.ConvertArrayToLinkedList(arr,"S");
 //       myList.displayList();.
-
-        for (int i = 1 ; i <=100 ; i++){
-            myList.insertLast(i);
+        Random r = new Random();
+        for (int i = 1 ; i <=5 ; i++){
+            myList.insertLast(r.nextInt(100));
         }
-        myList.deleteAllAfterFirst();
-        myList.insertLast(5);
-        myList.insertLast(3);
-        myList.insertLast(4);
-        myList.insertLast(2);
-        myList.insertLast(-1);
-        myList.displayList();
-        System.out.println(myList.binarySearch(95));
-        System.out.println(myList.binarySearch(33));
-
-        System.out.println("\nbinray search");
-        System.out.println(myList.binarySearch(5));
 
         myList.displayList();
-
-        System.out.println("\nSelection Sort");
-//        myList.selectionSort();
-        myList.displayList();
-
-        System.out.println("\nBubble Sort");
-//        myList.bubbleSort();
-        myList.displayList();
-
-//        myList.insertLast(20);
-//        myList.insertLast(0);
-        System.out.println("\nInsertion Sort");
         myList.insertionSort();
         myList.displayList();
+
+
+
+
 
     }
 
