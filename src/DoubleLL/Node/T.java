@@ -78,6 +78,16 @@ public class T {
 
         return cur;
     }
+    public Node getMid(Node start) {
+        Node slow = start;
+        Node fast = start.next;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
 
     public void insertAfterNode(int data, int value) {
         Node cur = head;
@@ -593,6 +603,16 @@ public class T {
         return size;
     }
 
+    public int size(Node start) {
+        int coun = 0;
+        Node curr = start;
+        while(curr != null) {
+            coun++;
+            curr = curr.next;
+        }
+        return coun;
+    }
+
 
     //Sort Methods
     public void selectionSort() {
@@ -648,6 +668,213 @@ public class T {
         head.prv = null;
     }
 
+//    public void mergeSort() {
+//        mergeSort(head, getMid(head), tail);
+//
+//    }
+//
+//    private void mergeSort(Node left , Node mid , Node right){
+//
+////        int sL = mid-left+1;
+////        int sR = right-mid;
+////            Node i, j, k;
+////        int[] L = new int[sL];
+////        T L = new T();
+////        int[] R = new int[sR];
+////        T R = new T();
+//
+//        Node tempLeft = left;
+//        Node tempMid = mid;
+//        Node tempRight = right;
+//
+//        int sizeLeft = size(tempLeft);
+//        int sizeRight = size(tempRight);
+//
+//        Node L = tempLeft;
+//        Node R = tempMid.next;
+//        L.prv = null;
+//
+//        tempMid.next = null;
+//
+//        if(sizeLeft > 1) {
+//            Node midLeft = getMid(L);
+//            mergeSort(L, midLeft, tempMid);
+//        }
+//        if(sizeRight > 1) {
+//            Node midRight = getMid(R);
+//            mergeSort(R, midRight, tempRight);
+//        }
+//        merge(L, R, tempLeft);
+//
+//
+////        System.arraycopy(arr,left,L,0,sL);
+////        System.arraycopy(arr,mid+1,R,0,sR);
+///*
+//* the previous copying method same as this one
+//*         for (int i = 0 ; i<sL;i++){
+//            L[i] = arr[i+left];
+//        }
+//        for (int i = 0 ; i<sR;i++){
+//            R[i] = arr[mid+1+i];
+//        }
+//* but it's more efficient
+//*
+//* because it's from the System class and without looping which it's O(1)
+//*
+//* */
+//
+////        Node curr1 = left;
+////        for(i=head ; i!=mid ; i=i.next) {
+////            L.insertLast(curr1.data);
+////            curr1 = curr1.next;
+////        }
+////        Node curr2 = mid.next;
+////        for(j=mid.next ; j!=right ; j=j.next) {
+////            R.insertLast(curr2.data);
+////            curr2 = curr2.next;
+////        }
+////        i = j = head;
+////        k = left;
+////
+////        while (i!=mid && j!=right) {
+////            if (i.data <= j.data) {
+//////                list.in
+////                k.data = i.data;
+////                i = i.next;
+////            }
+////            else {
+////                k.data = j.data;
+////                j = j.next;
+////            }
+////            k = k.next;
+////        }
+////
+////        while (i != mid) {
+////            k.data = i.data;
+////            i = i.next;
+////            k = k.next;
+////        }
+////        while (j != right) {
+////            k.data = j.data;
+////            j = j.next;
+////            k = k.next;
+//        }
+//
+//
+//
+//    private void merge(Node left , Node right, Node start) {
+//        Node tempLeft = left;
+//        Node tempRight = right;
+//        Node curr = start;
+//
+//        while(tempLeft != null && tempRight != null && curr != null) {
+//            if(tempLeft.data <= tempRight.data) {
+//                curr.data = tempLeft.data;
+//                tempLeft = tempLeft.next;
+//            } else {
+//                curr.data = tempRight.data;
+//                tempRight = tempRight.next;
+//            }
+//            curr = curr.next;
+//        }
+//
+//
+//        while(tempLeft != null && curr != null) {
+//            curr.data = tempLeft.data;
+//            tempLeft = tempLeft.next;
+//            curr = curr.next;
+//        }
+//
+//        while(tempRight != null && curr != null) {
+//            curr.data = tempRight.data;
+//            tempRight = tempRight.next;
+//            curr = curr.next;
+//        }
+////        if (left != right) {
+////            Node curr = head;
+////            int i = 1;
+////            while (i < size() / 2) {
+////                curr = curr.next;
+////                i++;
+////            }
+////            Node mid = curr;
+////
+////            mergeSort(list, left, mid);
+////            mergeSort(list, mid.next, right);
+////
+////            mergeSort(list,left, mid ,right);
+//        }
+
+    public void mergeSort() {
+        mergeSort(head);
+    }
+    private Node mergeSort(Node head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+        Node l = head;
+        Node h = head;
+        while(h != null && h.next != null) {
+            l = l.next;
+            h = h.next.next;
+        }
+        Node mid = l;
+        Node bfrMid = l.prv;
+        bfrMid.next = null;
+        mid.prv = null;
+        Node left = mergeSort(head);
+        Node right = mergeSort(mid);
+        return mergeSort(left, right);
+    }
+
+    public Node mergeSort(Node a, Node b) {
+        if(a == null)
+            return b;
+        if(b == null)
+            return b;
+        Node head = null;
+        Node tail = null;
+        Node temp = null;
+        if(a.data <= b.data) {
+            head = a;
+            tail = a;
+            a = a.next;
+        } else {
+            head = b;
+            tail = b;
+            b = b.next;
+        }
+        while(a != null && b != null) {
+            if(a.data <= b.data) {
+                tail.next = a;
+                temp = tail;
+                tail = a;
+                tail.prv = temp;
+                a = a.next;
+            } else {
+                tail.next = b;
+                temp = tail;
+                tail = b;
+                tail.prv = temp;
+                b = b.next;
+            }
+        }
+        if(a == null) {
+            tail.next = b;
+            temp = tail;
+            tail = b;
+            tail.prv = temp;
+        }
+        if(b == null) {
+            tail.next = a;
+            temp = tail;
+            tail = a;
+            tail.prv = temp;
+        }
+        return head;
+    }
+
+
 
        /*for (int i = 1 ; i<arr.length;i++){
             int val = arr[i];
@@ -663,22 +890,122 @@ public class T {
 
 
 
+    public void quickSort() {
+        quickSort(head, tail);
+    }
+
+    private void quickSort(Node l, Node h) {
+        if(l != null && h != null && l != h && l.prv != h) {
+            Node i = partition(l, h);
+            quickSort(l, i.prv);
+            quickSort(i.next, h);
+        }
+    }
+
+    private Node partition(Node l, Node h) {
+        int pivot = h.data;
+        Node i = l.prv;
+
+        for(Node j=l ; j!=null && j!=h ; j=j.next) {
+            if(j.data < pivot) {
+                i = (i==null) ? l : i.next;
+                swap(i,j);
+            }
+        }
+        i = (i == null) ? l : i.next;
+        swap(i,h);
+        return i;
+    }
+
+public void heapSort() {
+    int size = size();
+    for(int i = size / 2; i >= 0; i--) {
+        heapSort(size, i);
+    }
+    for(int i = size; i > 0; i--) {
+        swap(0, i);
+        heapSort(i, 0);
+    }
+}
+
+    private void heapSort(int size, int index) {
+        int bigSelect = index;
+        int left = 2 * index + 1;
+        int right = 2 * (index + 1);
+
+        Node curr = getNodeAtIndex(index);
+        Node leftNode = (left < size) ? getNodeAtIndex(left) : null;
+        Node rightNode = (right < size) ? getNodeAtIndex(right) : null;
+
+        if (leftNode != null && leftNode.data > curr.data) {
+            bigSelect = left;
+        }
+        if (rightNode != null && rightNode.data > curr.data) {
+            bigSelect = right;
+        }
+        if (bigSelect != index) {
+            swap(index, bigSelect);
+            heapSort(size, bigSelect);
+        }
+    }
+
+    private void heapRev() {
+        int size = size();
+        for(int i = size / 2; i >= 0; i--) {
+            heapRev(size, i);
+        }
+        for(int i = size; i > 0; i--) {
+            swap(0, i);
+            heapRev(i, 0);
+        }
+    }
+
+    private void heapRev(int size, int index) {
+        int smallSelect = index;
+        int left = 2 * index + 1;
+        int right = 2 * (index + 1);
+
+        Node curr = getNodeAtIndex(index);
+        Node leftNode = (left < size) ? getNodeAtIndex(left) : null;
+        Node rightNode = (right < size) ? getNodeAtIndex(right) : null;
+        if (leftNode != null && leftNode.data < curr.data) {
+            smallSelect = left;
+        }
+        if (rightNode != null && rightNode.data < curr.data) {
+            smallSelect = right;
+        }
+        if (smallSelect != index) {
+            swap(index, smallSelect);
+            heapRev(size, smallSelect);
+        }
+    }
+
+    private Node getNodeAtIndex(int index) {
+        Node temp = head;
+        for(int i = 0; i < index && temp != null; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
 
 
+        //Swap method for swapping two integers
+        public void swap(int index1, int index2) {
+            Node node1 = getNodeAtIndex(index1);
+            Node node2 = getNodeAtIndex(index2);
 
-
-
-
-        //swap method
+            if (node1 != null && node2 != null) {
+                int temp = node1.data;
+                node1.data = node2.data;
+                node2.data = temp;
+            }
+        }
         public void swap(Node a, Node b) {
             int temp = a.data;
             a.data = b.data;
             b.data = temp;
         }
+
+
+
     }
-
-
-
-
-
-

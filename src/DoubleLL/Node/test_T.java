@@ -142,14 +142,26 @@ public class test_T {
 //        Array array = new Array();
 //       myList = (T) array.ConvertArrayToLinkedList(arr,"S");
 //       myList.displayList();.
-        Random r = new Random();
-        for (int i = 1 ; i <=5 ; i++){
-            myList.insertLast(r.nextInt(100));
-        }
+//        Random r = new Random();
+//        for (int i = 1 ; i <=6 ; i++){
+//            myList.insertLast(r.nextInt(100));
+//        }
+        myList.insertFirst(4);
+        myList.insertFirst(0);
+        myList.insertLast(55);
+        myList.insertLast(20);
+        myList.insertLast(-5);
+        myList.insertLast(0);
+        myList.insertLast(22);
 
         myList.displayList();
-        myList.insertionSort();
+//        myList.bubbleSort();
+//        myList.mergeSort(myList, myList.head, myList.tail);
+        myList.mergeSort();
+//        myList.quickSort();
+//        myList.heapSort();
         myList.displayList();
+
 
 
 
