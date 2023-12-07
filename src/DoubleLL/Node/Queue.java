@@ -8,6 +8,10 @@ public class Queue {
         Queue.displayList();
         Queue.displayCount();
     }
+    public void EnqueueWithOutDetail(int element) {
+        Queue.insertLast(element);
+
+    }
     public void Enqueue_tree(int element) {
         Queue.insertLast(element);
     }
@@ -30,6 +34,15 @@ public class Queue {
             Queue.deleteFirst();
             Queue.displayList();
             Queue.displayCount();
+        }
+    }
+    public int DequeueWithReturn() {
+        if(isEmpty()) {
+            return 0;
+        } else {
+            int data = Queue.head.data;
+            Queue.deleteFirst();
+            return data;
         }
     }
     public void DeleteAfterFirst() {

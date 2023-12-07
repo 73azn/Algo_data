@@ -10,5 +10,11 @@ public class Test_Graph {
 
 
         graph.printGraph();
+
+        //Depth First Traversal start at vertices 3
+        graph.DFS(3);
+
+        //Breadth First Traversal start at vertices 0
+        graph.BFS(0);
     }
 }

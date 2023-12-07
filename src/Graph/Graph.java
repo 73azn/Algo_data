@@ -1,5 +1,6 @@
 package Graph;
 import DoubleLL.Node.Queue;
+import DoubleLL.Node.stack;
 public class Graph {
     private int v;
     private int edge;
@@ -30,19 +31,40 @@ public class Graph {
 
 
     //Traversing
-    public void DFS() {
+    private void DFS(int v, boolean[] visited) {
+        visited[v] = true;
+        System.out.print(v + " ");
+        for(int i=0 ; i< matrix[v].length ;i++) {
+            if(matrix[v][i] == 1 && !visited[i]) {
+                DFS(i, visited);
+            }
+        }
 
+    }
+
+    public void DFS(int v) {
+        boolean[] visited = new boolean[this.v];
+        DFS(v, visited);
+        System.out.println();
     }
 
     public void BFS(int v) {
         boolean[] visited = new boolean[this.v];
         Queue queue = new Queue();
         visited[v] = true;
-        queue.Enqueue(v);
+        queue.EnqueueWithOutDetail(v);
 
         while(!queue.isEmpty()) {
-
+            int curr = queue.DequeueWithReturn();
+            System.out.print(curr + " ");
+            for(int i=0 ; i<matrix[curr].length ; i++) {
+                if(matrix[curr][i] == 1 && !visited[i]) {
+                    visited[i] = true;
+                    queue.EnqueueWithOutDetail(i);
+                }
+            }
         }
+        System.out.println();
     }
 
 

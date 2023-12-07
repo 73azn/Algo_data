@@ -35,6 +35,12 @@ public class Test_Queue {
         queue.Dequeue();
         queue.Search(8);
         queue.displayList();
+        queue.Enqueue(5);
+        queue.Enqueue(6);
+        queue.Enqueue(7);
+        int data = queue.DequeueWithReturn();
+        System.out.println(data);
+        queue.displayList();
 
     }
 }
